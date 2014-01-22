@@ -1,0 +1,119 @@
+[21-Nov-2013 11:49:19] PHP Fatal error:  Can't use method return value in write context in /home4/eiccorp/public_html/platform/app/Controller/AppController.php on line 25
+[21-Nov-2013 11:55:09] PHP Fatal error:  Can't use method return value in write context in /home4/eiccorp/public_html/platform/app/Controller/AppController.php on line 26
+[21-Nov-2013 11:55:45] PHP Fatal error:  Can't use method return value in write context in /home4/eiccorp/public_html/platform/app/Controller/AppController.php on line 26
+[21-Nov-2013 12:00:05] PHP Fatal error:  Can't use method return value in write context in /home4/eiccorp/public_html/platform/app/Controller/AppController.php on line 27
+[21-Nov-2013 12:01:32] PHP Fatal error:  Can't use method return value in write context in /home4/eiccorp/public_html/platform/app/Controller/AppController.php on line 27
+[21-Nov-2013 12:11:32] PHP Fatal error:  Call to a member function find() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/AppController.php on line 28
+[21-Nov-2013 13:01:19] PHP Fatal error:  Cannot use [] for reading in /home4/eiccorp/public_html/platform/app/Controller/AppController.php on line 32
+[21-Nov-2013 23:32:17] PHP Fatal error:  Call to a member function find() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 11
+[21-Nov-2013 23:43:34] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home4/eiccorp/public_html/platform/app/View/Users/index.ctp on line 52
+[21-Nov-2013 23:44:01] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home4/eiccorp/public_html/platform/app/View/Users/index.ctp on line 52
+[23-Nov-2013 08:42:11] PHP Fatal error:  Call to a member function subject() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 43
+[23-Nov-2013 10:09:16] PHP Fatal error:  Call to a member function subject() on a non-object in /home4/eiccorp/public_html/platform/app/Model/User.php on line 464
+[23-Nov-2013 10:11:12] PHP Fatal error:  Call to a member function subject() on a non-object in /home4/eiccorp/public_html/platform/app/Model/User.php on line 464
+[23-Nov-2013 10:13:48] PHP Fatal error:  Call to a member function subject() on a non-object in /home4/eiccorp/public_html/platform/app/Model/User.php on line 464
+[23-Nov-2013 12:58:11] PHP Parse error:  syntax error, unexpected '{' in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 36
+[24-Nov-2013 17:45:53] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 45
+[24-Nov-2013 17:45:53] PHP Parse error:  syntax error, unexpected $end in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 45
+[24-Nov-2013 18:18:29] PHP Warning:  Unexpected character in input:  ''' (ASCII=39) state=1 in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 45
+[24-Nov-2013 18:18:29] PHP Parse error:  syntax error, unexpected $end in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 45
+[24-Nov-2013 19:10:32] PHP Fatal error:  Class 'AppController' not found in /home4/eiccorp/public_html/platform/app/Controller/BorderosController.php on line 3
+[24-Nov-2013 19:13:17] PHP Fatal error:  Class 'AppController' not found in /home4/eiccorp/public_html/platform/app/Controller/BorderosController.php on line 4
+[24-Nov-2013 19:13:22] PHP Fatal error:  Class 'AppController' not found in /home4/eiccorp/public_html/platform/app/Controller/BorderosController.php on line 4
+[24-Nov-2013 19:15:35] PHP Fatal error:  Class 'AppController' not found in /home4/eiccorp/public_html/platform/app/Controller/BorderosController.php on line 4
+[29-Nov-2013 23:01:00] PHP Parse error:  syntax error, unexpected T_VARIABLE in /home4/eiccorp/public_html/platform/app/View/Users/index.ctp on line 300
+[30-Nov-2013 00:40:05] PHP Parse error:  syntax error, unexpected '[' in /home4/eiccorp/public_html/platform/app/View/Users/index.ctp on line 77
+[02-Dec-2013 06:36:39] PHP Parse error:  syntax error, unexpected ';' in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 292
+[02-Dec-2013 09:14:05] PHP Parse error:  syntax error, unexpected ';' in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 298
+[02-Dec-2013 09:35:13] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 294
+[02-Dec-2013 09:36:43] PHP Parse error:  syntax error, unexpected T_DOUBLE_ARROW in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 295
+[02-Dec-2013 12:27:53] PHP Parse error:  syntax error, unexpected ':', expecting ',' or ';' in /home4/eiccorp/public_html/platform/app/View/Users/profil.ctp on line 86
+[02-Dec-2013 12:47:00] PHP Parse error:  syntax error, unexpected ';' in /home4/eiccorp/public_html/platform/app/View/Users/profil.ctp on line 52
+[02-Dec-2013 12:55:44] PHP Parse error:  syntax error, unexpected ')' in /home4/eiccorp/public_html/platform/app/View/Users/profil.ctp on line 56
+[02-Dec-2013 15:46:37] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING in /home4/eiccorp/public_html/platform/app/View/Users/profil.ctp on line 108
+[02-Dec-2013 16:32:11] PHP Fatal error:  Call to undefined method DateTime::diff() in /home4/eiccorp/public_html/platform/app/View/Users/profil.ctp on line 22
+[02-Dec-2013 16:39:13] PHP Fatal error:  Call to undefined method DateTime::diff() in /home4/eiccorp/public_html/platform/app/View/Users/profil.ctp on line 22
+[02-Dec-2013 16:57:11] PHP Fatal error:  Call to undefined method DateTime::diff() in /home4/eiccorp/public_html/platform/app/View/Users/profil.ctp on line 22
+[02-Dec-2013 17:09:59] PHP Parse error:  syntax error, unexpected ';' in /home4/eiccorp/public_html/platform/app/View/Users/profil.ctp on line 20
+[02-Dec-2013 17:17:03] PHP Parse error:  syntax error, unexpected T_IF in /home4/eiccorp/public_html/platform/app/View/Users/profil.ctp on line 33
+[03-Dec-2013 12:44:45] PHP Fatal error:  Call to a member function find() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 72
+[04-Dec-2013 06:41:19] PHP Parse error:  syntax error, unexpected '=', expecting ';' in /home4/eiccorp/public_html/platform/app/View/Users/add_feuil.ctp on line 41
+[04-Dec-2013 06:41:49] PHP Parse error:  syntax error, unexpected '=', expecting ';' in /home4/eiccorp/public_html/platform/app/View/Users/add_feuil.ctp on line 41
+[04-Dec-2013 12:46:20] PHP Parse error:  syntax error, unexpected T_STRING in /home4/eiccorp/public_html/platform/app/Model/AppModel.php on line 7
+[04-Dec-2013 12:46:25] PHP Parse error:  syntax error, unexpected T_STRING in /home4/eiccorp/public_html/platform/app/Model/AppModel.php on line 7
+[04-Dec-2013 12:46:30] PHP Parse error:  syntax error, unexpected T_STRING in /home4/eiccorp/public_html/platform/app/Model/AppModel.php on line 7
+[04-Dec-2013 13:06:09] PHP Fatal error:  Cannot use string offset as an array in /home4/eiccorp/public_html/platform/app/Model/AppModel.php on line 6
+[04-Dec-2013 13:06:41] PHP Fatal error:  Cannot use string offset as an array in /home4/eiccorp/public_html/platform/app/Model/AppModel.php on line 6
+[04-Dec-2013 18:25:32] PHP Fatal error:  Call to undefined function  genaratecodein() in /home4/eiccorp/public_html/platform/app/Controller/BorderosController.php on line 23
+[04-Dec-2013 18:26:14] PHP Fatal error:  Call to undefined function  genaratecodeinc() in /home4/eiccorp/public_html/platform/app/Controller/BorderosController.php on line 23
+[04-Dec-2013 18:27:18] PHP Fatal error:  Call to undefined function  genaratecodeinc() in /home4/eiccorp/public_html/platform/app/Controller/BorderosController.php on line 23
+[04-Dec-2013 18:27:37] PHP Fatal error:  Call to undefined function  genaratecodeinc() in /home4/eiccorp/public_html/platform/app/Controller/BorderosController.php on line 23
+[04-Dec-2013 18:30:19] PHP Fatal error:  Call to undefined function  genaratecodeinc() in /home4/eiccorp/public_html/platform/app/Controller/BorderosController.php on line 23
+[04-Dec-2013 18:33:24] PHP Fatal error:  Call to a member function create() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/BorderosController.php on line 52
+[04-Dec-2013 20:26:14] PHP Fatal error:  Call to undefined function  redirect() in /home4/eiccorp/public_html/platform/app/Controller/BorderosController.php on line 18
+[04-Dec-2013 21:02:07] PHP Parse error:  syntax error, unexpected ';' in /home4/eiccorp/public_html/platform/app/View/Borderos/add_fieul_bordero.ctp on line 76
+[06-Dec-2013 22:42:55] PHP Fatal error:  Call to undefined method UsersController::genarateCodeinc() in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 90
+[10-Dec-2013 04:27:22] PHP Parse error:  syntax error, unexpected ';' in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 327
+[10-Dec-2013 04:28:25] PHP Parse error:  syntax error, unexpected ';' in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 327
+[10-Dec-2013 04:28:29] PHP Parse error:  syntax error, unexpected ';' in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 327
+[11-Dec-2013 22:19:40] PHP Parse error:  syntax error, unexpected T_ECHO in /home4/eiccorp/public_html/platform/app/View/Posts/get_fil.ctp on line 34
+[12-Dec-2013 05:04:25] PHP Fatal error:  Cannot use string offset as an array in /home4/eiccorp/public_html/platform/app/Controller/PostsController.php on line 21
+[12-Dec-2013 05:05:36] PHP Fatal error:  Cannot use string offset as an array in /home4/eiccorp/public_html/platform/app/Controller/PostsController.php on line 20
+[12-Dec-2013 05:05:52] PHP Fatal error:  Cannot use string offset as an array in /home4/eiccorp/public_html/platform/app/Controller/PostsController.php on line 20
+[12-Dec-2013 05:57:03] PHP Fatal error:  Cannot use string offset as an array in /home4/eiccorp/public_html/platform/app/Controller/PostsController.php on line 20
+[14-Dec-2013 12:09:54] PHP Fatal error:  Call to undefined method View::generateKey() in /home4/eiccorp/public_html/platform/app/View/Posts/get_fil.ctp on line 97
+[14-Dec-2013 14:56:32] PHP Parse error:  syntax error, unexpected ':' in /home4/eiccorp/public_html/platform/app/View/Posts/get_fil.ctp on line 63
+[14-Dec-2013 15:43:15] PHP Fatal error:  Call to a member function find() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/CommentsController.php on line 23
+[14-Dec-2013 15:46:23] PHP Fatal error:  Call to a member function find() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/CommentsController.php on line 25
+[14-Dec-2013 23:41:42] PHP Fatal error:  Call to undefined method UsersController::debug() in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 80
+[24-Dec-2013 03:50:40] PHP Fatal error:  Call to undefined method RequestHandlerComponent::is() in /home4/eiccorp/public_html/platform/app/Controller/AvatarsController.php on line 17
+[24-Dec-2013 05:43:01] PHP Fatal error:  Call to a member function read() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 36
+[24-Dec-2013 06:10:49] PHP Parse error:  syntax error, unexpected $end in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 102
+[24-Dec-2013 06:24:28] PHP Parse error:  syntax error, unexpected ')' in /home4/eiccorp/public_html/platform/app/View/Users/profil.ctp on line 11
+[24-Dec-2013 06:24:52] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home4/eiccorp/public_html/platform/app/View/Users/profil.ctp on line 11
+[24-Dec-2013 06:24:56] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home4/eiccorp/public_html/platform/app/View/Users/profil.ctp on line 11
+[24-Dec-2013 06:25:15] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home4/eiccorp/public_html/platform/app/View/Users/profil.ctp on line 10
+[24-Dec-2013 06:25:19] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home4/eiccorp/public_html/platform/app/View/Users/profil.ctp on line 10
+[24-Dec-2013 07:10:26] PHP Fatal error:  Call to undefined function  getinsertid() in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 48
+[24-Dec-2013 07:16:04] PHP Fatal error:  Call to undefined function  getlastinsertid() in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 48
+[24-Dec-2013 07:23:15] PHP Parse error:  syntax error, unexpected T_INT_CAST in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 48
+[24-Dec-2013 13:34:28] PHP Fatal error:  Call to a member function find() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 88
+[24-Dec-2013 13:35:59] PHP Fatal error:  Call to a member function find() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 88
+[24-Dec-2013 14:46:42] PHP Fatal error:  Call to a member function find() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 83
+[24-Dec-2013 15:07:46] PHP Parse error:  syntax error, unexpected ';' in /home4/eiccorp/public_html/platform/app/View/Posts/get_fil.ctp on line 15
+[26-Dec-2013 01:29:29] PHP Parse error:  syntax error, unexpected ')' in /home4/eiccorp/public_html/platform/app/View/Users/list_feuil.ctp on line 21
+[26-Dec-2013 12:20:34] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING, expecting ')' in /home4/eiccorp/public_html/platform/app/Controller/PostsController.php on line 20
+[26-Dec-2013 13:09:41] PHP Parse error:  syntax error, unexpected T_STRING in /home4/eiccorp/public_html/platform/app/Controller/PostsController.php on line 23
+[26-Dec-2013 13:10:02] PHP Fatal error:  Class 'set' not found in /home4/eiccorp/public_html/platform/app/Controller/PostsController.php on line 22
+[27-Dec-2013 06:21:58] PHP Parse error:  syntax error, unexpected '{', expecting ')' in /home4/eiccorp/public_html/platform/app/View/Posts/get_fil.ctp on line 29
+[27-Dec-2013 06:22:17] PHP Parse error:  syntax error, unexpected '{', expecting ')' in /home4/eiccorp/public_html/platform/app/View/Posts/get_fil.ctp on line 29
+[27-Dec-2013 07:50:16] PHP Parse error:  syntax error, unexpected ';' in /home4/eiccorp/public_html/platform/app/View/Posts/get_fil.ctp on line 35
+[27-Dec-2013 12:03:09] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home4/eiccorp/public_html/platform/app/View/Posts/get_fil.ctp on line 35
+[27-Dec-2013 12:05:37] PHP Fatal error:  Unsupported operand types in /home4/eiccorp/core/lib/Cake/View/Helper/HtmlHelper.php on line 803
+[27-Dec-2013 12:22:43] PHP Fatal error:  Unsupported operand types in /home4/eiccorp/core/lib/Cake/View/Helper/HtmlHelper.php on line 803
+[27-Dec-2013 12:27:37] PHP Parse error:  syntax error, unexpected $end in /home4/eiccorp/public_html/platform/app/View/Posts/get_fil.ctp on line 89
+[27-Dec-2013 12:37:06] PHP Parse error:  syntax error, unexpected ':', expecting '(' in /home4/eiccorp/public_html/platform/app/View/Posts/get_fil.ctp on line 37
+[27-Dec-2013 13:54:54] PHP Parse error:  syntax error, unexpected '[', expecting ')' in /home4/eiccorp/public_html/platform/app/View/Posts/get_fil.ctp on line 36
+[27-Dec-2013 13:55:34] PHP Parse error:  syntax error, unexpected '[', expecting ']' in /home4/eiccorp/public_html/platform/app/View/Posts/get_fil.ctp on line 36
+[27-Dec-2013 14:07:54] PHP Parse error:  syntax error, unexpected ';' in /home4/eiccorp/public_html/platform/app/View/Posts/get_fil.ctp on line 36
+[27-Dec-2013 16:37:07] PHP Parse error:  syntax error, unexpected T_LNUMBER in /home4/eiccorp/public_html/platform/app/View/Posts/get_fil.ctp on line 35
+[27-Dec-2013 21:26:59] PHP Fatal error:  Can't use method return value in write context in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 137
+[28-Dec-2013 00:59:45] PHP Fatal error:  Call to a member function is() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/PostsController.php on line 92
+[28-Dec-2013 01:34:09] PHP Parse error:  syntax error, unexpected '}' in /home4/eiccorp/public_html/platform/app/Controller/PostsController.php on line 147
+[28-Dec-2013 02:13:34] PHP Fatal error:  Call to a member function create() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/PostsController.php on line 135
+[28-Dec-2013 02:16:16] PHP Fatal error:  Call to a member function create() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/PostsController.php on line 135
+[28-Dec-2013 02:18:01] PHP Fatal error:  Call to a member function create() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/PostsController.php on line 135
+[28-Dec-2013 02:21:44] PHP Fatal error:  Call to a member function create() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/PostsController.php on line 136
+[28-Dec-2013 02:22:38] PHP Fatal error:  Call to a member function save() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/PostsController.php on line 136
+[28-Dec-2013 12:14:52] PHP Parse error:  syntax error, unexpected '[', expecting T_VARIABLE or '$' in /home4/eiccorp/public_html/platform/app/View/Users/index.ctp on line 50
+[28-Dec-2013 12:19:02] PHP Fatal error:  Can't use method return value in write context in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 264
+[28-Dec-2013 12:19:39] PHP Fatal error:  Can't use method return value in write context in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 264
+[28-Dec-2013 12:20:30] PHP Parse error:  syntax error, unexpected ')' in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 264
+[28-Dec-2013 12:21:04] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 267
+[28-Dec-2013 12:46:56] PHP Fatal error:  Can't use method return value in write context in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 264
+[28-Dec-2013 12:49:38] PHP Fatal error:  Can't use method return value in write context in /home4/eiccorp/public_html/platform/app/View/Layouts/default.ctp on line 264
+[28-Dec-2013 13:32:57] PHP Parse error:  syntax error, unexpected ';', expecting ')' in /home4/eiccorp/public_html/platform/app/View/Posts/get_fil.ctp on line 100
+[15-Jan-2014 22:57:18] PHP Fatal error:  Call to a member function user() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 14
+[15-Jan-2014 22:57:24] PHP Fatal error:  Call to a member function user() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 14
+[15-Jan-2014 22:57:51] PHP Fatal error:  Call to a member function user() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 14
+[15-Jan-2014 22:57:57] PHP Fatal error:  Call to a member function user() on a non-object in /home4/eiccorp/public_html/platform/app/Controller/UsersController.php on line 14

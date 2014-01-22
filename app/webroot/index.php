@@ -23,6 +23,13 @@
 /**
  * Use the DS to separate the directories in other defines
  */
+
+
+if(!defined('RACINE')){
+	define('RACINE', dirname(dirname(dirname(dirname(dirname(__FILE__))))));
+}
+
+
 if (!defined('DS')) {
 	define('DS', DIRECTORY_SEPARATOR);
 }
@@ -32,6 +39,9 @@ if (!defined('DS')) {
  * a directory layout other than the way it is distributed.
  * When using custom settings be sure to use the DS and do not add a trailing DS.
  */
+if(!defined('CAKELIB')){
+   define('CAKELIB', RACINE . DS . 'core' . DS . 'lib' . DS);	
+}
 
 /**
  * The full path to the directory which holds "app", WITHOUT a trailing DS.
@@ -63,12 +73,11 @@ if (!defined('APP_DIR')) {
  * The following line differs from its sibling
  * /lib/Cake/Console/Templates/skel/webroot/index.php
  */
-//define('CAKE_CORE_INCLUDE_PATH', ROOT . DS . 'lib');
+define('CAKE_CORE_INCLUDE_PATH', CAKELIB);
 
 /**
  * Editing below this line should NOT be necessary.
  * Change at your own risk.
- *
  */
 if (!defined('WEBROOT_DIR')) {
 	define('WEBROOT_DIR', basename(dirname(__FILE__)));
@@ -79,7 +88,8 @@ if (!defined('WWW_ROOT')) {
 
 // for built-in server
 if (php_sapi_name() == 'cli-server') {
-	if ($_SERVER['REQUEST_URI'] !== '/' && file_exists(WWW_ROOT . $_SERVER['PHP_SELF'])) {
+	$uri = str_replace($_SERVER['SCRIPT_FILENAME'], WWW_ROOT, '');
+	if ($_SERVER['REQUEST_URI'] !== '/' && file_exists(WWW_ROOT . $uri)) {
 		return false;
 	}
 	$_SERVER['PHP_SELF'] = '/' . basename(__FILE__);
@@ -89,11 +99,11 @@ if (!defined('CAKE_CORE_INCLUDE_PATH')) {
 	if (function_exists('ini_set')) {
 		ini_set('include_path', ROOT . DS . 'lib' . PATH_SEPARATOR . ini_get('include_path'));
 	}
-	if (!include 'Cake' . DS . 'bootstrap.php') {
+	if (!include ('Cake' . DS . 'bootstrap.php')) {
 		$failed = true;
 	}
 } else {
-	if (!include CAKE_CORE_INCLUDE_PATH . DS . 'Cake' . DS . 'bootstrap.php') {
+	if (!include (CAKE_CORE_INCLUDE_PATH . DS . 'Cake' . DS . 'bootstrap.php')) {
 		$failed = true;
 	}
 }
