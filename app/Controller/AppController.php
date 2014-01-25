@@ -1,6 +1,7 @@
 <?php
 App::uses('Controller', 'Controller');
 class AppController extends Controller {
+  public $helpers = array('Form', 'Html', 'Js', 'Time','Image.Image');
   public $components = array('Session',
       'Cookie'=>array(
             'name'=>'EicCorporation',

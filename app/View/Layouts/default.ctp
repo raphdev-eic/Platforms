@@ -253,7 +253,7 @@
               <!-- notification dropdown end -->
           </ul>
           </div>
-          <div class="top-nav ">
+          <div class="top-nav">
               <ul class="nav pull-right top-menu">
                   <li>
                       <input type="text" class="form-control search" placeholder="Search">
@@ -329,7 +329,7 @@
                       </a>
                   </li>
                   <li class="sub-menu">
-                      <a href="<?php echo $this->Html->url(array('controller' => 'Posts', 'action' => 'getFil')); ?>">
+                      <a href="<?php echo $this->Html->url(array('controller' => 'Posts', 'action' => 'newsfeed')); ?>">
                           <i class=" icon-info"></i>
                           <span>Fil d'actualités</span>
                       </a>
