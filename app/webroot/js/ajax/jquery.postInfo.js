@@ -33,10 +33,10 @@ $(function(){
  */
    $.get("/Posts/getNewfeedContent",{},function(data){
         if(!data.reponse){
-             var Tpl = $("#ListPostTpl").html();
-             var output =  Mustache.to_html(Tpl, data);
-             $('#allcontent').prepend(output);
-        }
+            var Tpl = $("#newfeed-c").html();
+                var output =  Mustache.to_html(Tpl,data);
+                $('#allcontent').prepend(output);
+            }
    },"json");
 
 });

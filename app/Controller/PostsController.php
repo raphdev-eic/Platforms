@@ -84,12 +84,13 @@ class PostsController extends AppController{
     }
 
     public function getNewfeedContent(){
-        if(!$this->Auth->user('User.id')){
-           $this->Auth->logout();
-           exit();
-        }
+       if(!$this->Auth->user('User.id')){
+          $this->Auth->logout();
+          exit();
+       }
        if($this->RequestHandler->isAjax()){
                $all = array();
+               //$Postlist = $this->Post->find('all',array('contain'=>array('Post')));
                $Postlist = $this->Post->find('all',array(
                    'contain'=>array('Type',
                     'Comment'=>array(
@@ -110,11 +111,12 @@ class PostsController extends AppController{
                             'limit'=>1
                         )
                     )),
-                   'order'=>'Post.id DESC'
+                   'order'=>'Post.id DESC',
+                   'limit'=>10
                 ));
                    if(!empty($Postlist)){
                       $all = array(
-                       'data'=>$Postlist
+                           "feed"=>$Postlist
                       );
                      echo json_encode($all);
                      exit();
