@@ -398,6 +398,8 @@
     <!-- js placed at the end of the document so the pages load faster -->
     <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<?php //echo $this->Html->script('jquery'); ?>
+<?php //echo $this->Html->script('jquery-1.8.3.min'); ?>
 <?php echo $this->Html->script('bootstrap.min'); ?>
 <?php echo $this->Html->script('jquery.dcjqaccordion.2.7'); ?>
 <?php echo $this->Html->script('jquery.scrollTo.min'); ?>
@@ -411,12 +413,12 @@
 <?php echo $this->Html->script('time.ago'); ?>
 <?php echo $this->Html->script('jquery.countdown'); ?>
 <?php echo $this->Html->script('jquery.countdown-fr'); ?>
+<?php echo $this->Html->script('main');?>
+<?php echo $this->fetch('script'); ?>
 <?php echo $this->Html->script('common-scripts'); ?>
 <?php echo $this->Html->script('sparkline-chart'); ?>
 <?php echo $this->Html->script('easy-pie-chart'); ?>
 <?php echo $this->Html->script('nailthumb/jquery.nailthumb.1.1.min'); ?>
-<?php echo $this->fetch('script'); ?>
-<?php echo $this->Html->script('main');?>
     <!--<script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

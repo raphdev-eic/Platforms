@@ -82,10 +82,4 @@ $("#comment-form").focus(function(){
 
     });
 
-  $('.like').bind("click",function(e){
-    var Id = $(this).attr('id');
-    console.log(Id);
-      e.preventDefault();
-  });
-
 });

@@ -26,34 +26,34 @@
                         <div class="btn-group pull-right">
                         <button data-toggle="dropdown" class="btn btn-success dropdown-toggle btn-xs" type="button">Tâches<span class="caret"></span></button>
                           <ul role="menu" class="dropdown-menu">
-                              <li><a href="#">Modifier l'information</a></li>
-                              <li><a href="#"> Abonner</a></li>
-                              <li><a href="#">Cacher </a></li>
-                              <li><a href="#">Supprimer </a></li>
+                              <li><a href="#"> Modifier </a></li>
+                              <li><a href="#"> Abonner </a></li>
+                              <li><a href="#"> Cacher </a></li>
+                              <li><a href="#"> Supprimer </a></li>
                           </ul>
                         </div>
                     </span>
                     </h5>
                       <p>{{content}}</p>
                     <p></p>
-                    <span class="t-info"><i class="icon-time"></i> Il y' a 20 minutes - <i class="icon-map-marker"></i>  </span>
+                    <span class="t-info"><i class="icon-time"></i> Il a 20 minutes <i class="icon-map-marker"></i></span>
                     <footer class="panel-footer">
-                      <ul class="nav nav-pills">
-                          <li data-original-title="1 de + pour cette information" data-placement="left" class="tooltips">
-                              <a href=""><span class="label label-info"><i class="icon-thumbs-up"></i>  4000+Eic </span></a>
-                          </li>
-                          <li data-original-title="Commentez l'article" data-placement="top" class="tooltips">
-                              <a href="#"><span class="label label-info"><i class="icon-comments"></i> Commentez </span></a>
-                          </li>
-                          <li data-original-title="Signaler l'article en cas d'abus" data-placement="right" class="tooltips">
-                              <a href="#"><span class="label label-danger"><i class=" icon-warning-sign"></i> Signaler</span></a>
-                          </li>
-                      </ul>
-                      <hr/>
-                      <div>
-                        <span><strong></strong> Commentaire</span>
-                        <a href="#"  id="Post{{id}}" class="like"><span class="pull-right label label-info"><i class="icon-plus"></i> de commentaires</span></a>
-                      </div>
+                        <ul class="nav nav-pills">
+                            <li data-original-title="1 de + pour cette information" data-placement="left" class="tooltips">
+                                <a href=""><span class="label label-info"><i class="icon-thumbs-up"></i>  4000+Eic </span></a>
+                            </li>
+                            <li data-original-title="Commentez article" data-placement="top" class="tooltips">
+                                <a href=""><span class="label label-info"><i class="icon-comments"></i> Commentez </span></a>
+                            </li>
+                            <li data-original-title="Signaler article en cas abus" data-placement="right" class="tooltips">
+                                <a href="#"><span class="label label-danger"><i class=" icon-warning-sign"></i> Signaler</span></a>
+                            </li>
+                        </ul>
+                        <hr/>
+                        <div>
+                          <span><strong></strong> Commentaire</span>
+                          <a href="#"  id="Post{{id}}" class="like"><span class="pull-right label label-info"><i class="icon-plus"></i> de commentaires</span></a>
+                        </div>
                     </footer>
                       <div class="list-group">
                         {{#Comment}}

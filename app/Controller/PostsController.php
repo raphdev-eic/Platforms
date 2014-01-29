@@ -113,10 +113,7 @@ class PostsController extends AppController{
                    'limit'=>10
                 ));
                    if(!empty($Postlist)){
-                      $all = array(
-                           "feed"=>$Postlist
-                      );
-                     echo json_encode($all);
+                     echo json_encode($Postlist);
                      exit();
                    }else{
                        $all = array(
@@ -126,7 +123,7 @@ class PostsController extends AppController{
                        echo json_encode($all);
                        exit();
                    }
-         exit();
+              exit();
        }else{
 
        }
