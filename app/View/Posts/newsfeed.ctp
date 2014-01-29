@@ -1,8 +1,6 @@
 <!--general newfeed content-->
 <div class="row">
   <div class="col-lg-7">
-     <section id="test">
-     </section>
      <!--start form post and image-->
      <div class="row">
         <!-- start photo connect-->
@@ -208,3 +206,5 @@
       <!--news actualité-->
     </div>
 </div>
+<?php echo $this->Html->script('ajax/jquery.postInfo',array('inline'=>false)); ?>
+

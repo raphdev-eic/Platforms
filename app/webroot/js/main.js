@@ -25,7 +25,7 @@ $("#comment-form").focus(function(){
 });
 
 
-  $('select.styled').customSelect();
+  //$('select.styled').customSelect();
 
   /**
 
@@ -81,5 +81,11 @@ $("#comment-form").focus(function(){
       until: newYear
 
     });
+
+  $('.like').bind("click",function(e){
+    var Id = $(this).attr('id');
+    console.log(Id);
+      e.preventDefault();
+  });
 
 });

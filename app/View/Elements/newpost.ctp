@@ -1,8 +1,8 @@
      <article id="NewPostTpl" class="hidden">
         <div class="row">
               <div class="col-lg-1">
-                  <section class="panel">
-                      <img src="{{avatar}}" alt=""/>
+                  <section>
+                    <?php echo $this->Image->resize($this->Session->read('Auth.User.Avatar.0.url'),52,52); ?>
                   </section>
               </div>
               <div class="col-lg-11">

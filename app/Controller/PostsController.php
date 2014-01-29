@@ -31,11 +31,9 @@ class PostsController extends AppController{
          if(!empty($this->request->data)){
           //testé l'avatar a refaire
                 if (!$this->Session->check('Auth.User.Avatar.0.url')){
-                   $avatar = 'http://dummyimage.com/52x48/bbb/05071f.png&text=avatar';
-                   $avatarcomment = 'http://dummyimage.com/35x35/bbb/05071f.png&text=avatar';
+                   $avatar = 'http://dummyimage.com/52x52/bbb/05071f.png&text=avatar';
                 }else{
                    $avatar = $this->Session->read('Auth.User.Avatar.0.url');
-                   $avatarcomment = $this->Session->read('Auth.User.Avatar.0.url');
                 }
              $this->request->data['Post']['name'] = ucfirst($this->Auth->user('User.lastname')).' '.ucfirst($this->Auth->user('User.firstname'));
              $this->request->data['Post']['user_id'] = $this->Auth->user('User.id');
@@ -50,8 +48,8 @@ class PostsController extends AppController{
                          'reponse'=>1,
                          'names'=>$this->request->data['Post']['name'],
                          'userid'=>$this->request->data['Post']['user_id'],
-                         'avatar'=>$avatar,
-                         'avatarcomment'=>$avatarcomment,
+                         /*'avatar'=>$avatar,
+                         'avatarcomment'=>$avatarcomment,*/
                          'postid'=>$this->Post->id,
                          'duration'=> $time['Post']['created'],
                          'content'=>$this->request->data['Post']['content']
@@ -111,7 +109,7 @@ class PostsController extends AppController{
                             'limit'=>1
                         )
                     )),
-                   'order'=>'Post.id DESC',
+                   'order'=>'Post.created DESC',
                    'limit'=>10
                 ));
                    if(!empty($Postlist)){
