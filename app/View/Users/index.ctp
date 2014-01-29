@@ -591,7 +591,6 @@
                                               </article>-->
                                           </div>
                                           <div class="tab-pane " id="recent">
-                                              
                                           </div>
                                       </div>
                                   </div>
@@ -599,9 +598,4 @@
                               <!--widget end-->
                       <!--features carousel end-->
                   </div>
-              </div> 
-<?php echo $this->Html->scriptStart(array('inline'=>false));?>
- (function($){
-   console.log('lol');
-})(jQuery);
-<?php echo $this->Html->scriptEnd(); ?>            
+              </div>

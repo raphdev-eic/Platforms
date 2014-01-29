@@ -1,5 +1,4 @@
 $(function(){
-
   $("#owl-demo").owlCarousel({
 
       navigation : true,
@@ -13,7 +12,6 @@ $(function(){
       autoPlay:true
 
   });
-
 
   $('#form-content').focus(function(){
     $(this).css({"height": "auto"});
@@ -70,9 +68,6 @@ $("#comment-form").focus(function(){
    */
 
   $('.resize').nailthumb();
-
-
-
     var newYear = new Date(2014, 12 - 1, 31); // coorespond à la Date ('annnée,mois,jours') mois = num mois actu -1 (exemple = juin = 6 = 7-1)
 
      //alert(newYear); 

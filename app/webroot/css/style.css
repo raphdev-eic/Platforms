@@ -9920,3 +9920,13 @@ border-bottom-left-radius: 3px;
 .post-img{
     width: 100%;
 }
+
+/*template mustache*/
+.hidden{
+    display: none;
+}
+
+.loading{
+  display: block;
+  margin: 0 auto;
+}

@@ -1,28 +1,34 @@
 <!--general newfeed content-->
 <div class="row">
   <div class="col-lg-7">
+     <section id="test">
+     </section>
      <!--start form post and image-->
      <div class="row">
         <!-- start photo connect-->
-          <div class="col-lg-2">
-              <section class="panel">
-                  <div class="panel-body">{{Image}}</div>
+          <div class="col-lg-1">
+              <section>
+                <?php if (!$this->Session->check('Auth.User.Avatar.0.url')): ?>
+                    <?php echo $this->Html->image('http://dummyimage.com/52x52/bbb/05071f.png&text=avatar'); ?>
+                <?php else: ?>
+                    <?php echo $this->Image->resize($this->Session->read('Auth.User.Avatar.0.url'),52,52); ?>
+                <?php endif; ?>
               </section>
           </div>
         <!-- end photo connect-->
 
         <!-- start form post-->
-          <div class="col-lg-10" id="form-style">
+          <div class="col-lg-11" id="form-style">
               <section class="panel">
                   <div class="panel-footer-2">
                     <p><?php echo ucfirst($this->Session->read('Auth.User.User.username')); ?> |  <i class="icon-retweet"></i> Ajouter une information</p>
                   </div>
                   <div class="panel-body">
-                  <?php echo $this->Form->create('Post',array('url'=>array('controller'=>'Posts','action'=>'AddPost'),'type'=>'file')); ?>
+                  <?php echo $this->Form->create('Post',array('url'=>array('controller'=>'Posts','action'=>'SendPosts'),'type'=>'file')); ?>
                   <?php echo $this->Form->input('name', array('type'=>'hidden',"autocomplete"=>"off")); ?>
                   <?php echo $this->Form->input('user_id', array('type'=>'hidden',"autocomplete"=>"off")); ?>
                   <?php echo $this->Form->input('type_id', array('type'=>'hidden',"autocomplete"=>"off")); ?>
-                  <?php echo $this->Form->textarea('content',array('class'=>'form-control input-lg p-text-area','rows'=>5,'placeholder'=>'Transmettez-nous une information ici...','id'=>'form-content')); ?>
+                  <?php echo $this->Form->input('content',array('class'=>'form-control input-lg p-text-area','rows'=>5,'placeholder'=>'Transmettez-nous une information ici...','id'=>'form-content','label'=>false)); ?>
                     <footer class="panel-footer" id="footer">
                     <div class="loader pull-right"><?php echo $this->Html->image('ajax-loader.gif');?></div>
                     <?php echo $this->Form->button('Partager', array('class'=>"btn btn-info pull-right")); ?>
@@ -40,253 +46,18 @@
      </div>
      <!--end form post image-->
 
-     <!--start post and comment feed list-->
-     <div class="row">
-        <!-- start photo connect-->
-          <div class="col-lg-2">
-              <section class="panel">
-                  <div class="panel-body">{{Image}}</div>
-              </section>
-          </div>
-        <!-- end photo connect-->
-
-        <!-- start comment post-->
-          <div class="col-lg-10">
-              <section class="panel">
-                  <div class="panel-body list-group">
-                    <h5><strong>{{lastname+firstname}}</strong>
-                     <span>
-                        <div class="btn-group pull-right">
-                        <button data-toggle="dropdown" class="btn btn-success dropdown-toggle btn-xs" type="button">Tâches<span class="caret"></span></button>
-                          <ul role="menu" class="dropdown-menu">
-                              <li><a href="#">Modifier l'information</a></li>
-                              <li><a href="#">{{S'abonner ou Se désabonner}} a l'information</a></li>
-                              <li><a href="#">Cacher l'information</a></li>
-                              <li><a href="#">Supprimer l'information</a></li>
-                          </ul>
-                        </div>
-                    </span>
-                    </h5>
-                    <p>{{Sit lundium dapibus scelerisque cras lorem mattis sociis vut pellentesque odio, eu ac elementum, ac integer! Magnis in porttitor proin pellentesque scelerisque risus a dapibus est vel scelerisque. Enim ultricies vel pid? Nisi turpis odio parturient? Rhoncus? In, eu penatibus pulvinar pulvinar. Sit ridiculus. Eros? Urna aenean, elementum. Phasellus tristique, habitasse hac, et nunc! In risus? Elementum lectus penatibus proin. Et amet magna risus, integer pulvinar elit amet mauris lectus. Dictumst rhoncus? Risus nec. Amet natoque! Vel nisi ac elementum eros porttitor, non est egestas magna pulvinar, lorem, adipiscing risus! Mattis sit a. Facilisis aenean nascetur hac dolor, montes et ultrices, dapibus, risus turpis facilisis, eu urna magnis, eros tincidunt in auctor, mus est sit mid ut rhoncus dignissim mus.}}
-                    </p>
-                    <p><?php echo $this->Html->image('http://dummyimage.com/600x350/bbb/05071f.png',array('class'=>'post-img'));?></p>
-                    <span class="t-info"><i class="icon-time"></i> Il y' a 20 minutes - <i class="icon-map-marker"></i>  </span>
-                    <footer class="panel-footer">
-                      <ul class="nav nav-pills">
-                          <li data-original-title="1 de + pour cette information" data-placement="left" class="tooltips">
-                              <a href="#"><span class="label label-info"><i class="icon-thumbs-up"></i> {{1000+}} Eic </span></a>
-                          </li>
-                          <li data-original-title="Commentez l'article" data-placement="top" class="tooltips">
-                              <a href="#"><span class="label label-info"><i class="icon-comments"></i> Commentez </span></a>
-                          </li>
-                          <li data-original-title="Signaler l'article en cas d'abus" data-placement="right" class="tooltips">
-                              <a href="#"><span class="label label-danger"><i class=" icon-warning-sign"></i> Signaler</span></a>
-                          </li>
-                      </ul>
-                      <hr/>
-                      <div>
-                        <span><strong>{{4000+}}</strong> Commentaire{{s}}</span>
-                        <a href="javascript:;"><span class="pull-right label label-info"><i class="icon-plus"></i> de commentaires</span></a>
-                      </div>
-                    </footer>
-                      <div class="list-group">
-                               <a class="list-group-item " href="javascript:;">
-                                <strong><?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar',array('class'=>'pull-left comment-img'));?></strong>
-                                <h6 class="list-group-item-heading"><strong>{{Lastname+Firstname}}</strong><span class="pull-right label label-info">+1000 Eic</span></h6>
-                                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.c, montes amet. Turpis in vel augue. Massa amet urna a, cursus augue in eros rhoncus integer ut. Magnis diam dapibus odio nisi hac, porttitor proin mus? Scelerisque hac nunc, placerat phasellus quis mus nascetur dignissim rhoncus mattis tincidunt phasellus cras scelerisque.
-                                </p>
-                               </a>
-                               <a class="list-group-item " href="javascript:;">
-                                <strong><?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar',array('class'=>'pull-left comment-img'));?></strong>
-                               <h6 class="list-group-item-heading"><strong>{{Lastname+Firstname}}</strong><span class="pull-right label label-info">+1000 Eic</span></h6>
-                               <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.c, montes amet. Turpis in vel augue. Massa amet urna a, cursus augue in eros rhoncus integer ut. Magnis diam dapibus odio nisi hac, porttitor proin mus? Scelerisque hac nunc, placerat phasellus quis mus nascetur dignissim rhoncus mattis tincidunt phasellus cras scelerisque.Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.c, montes amet. Turpis in vel augue. Massa amet urna a, cursus augue in eros rhoncus integer ut. Magnis diam dapibus odio nisi hac, porttitor proin mus? Scelerisque hac nunc, placerat phasellus quis mus nascetur dignissim rhoncus mattis tincidunt phasellus cras scelerisque.</p>
-                              </a>
-                              <a class="list-group-item" href="javascript:;">
-                                <strong><?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar',array('class'=>'pull-left comment-img'));?></strong>
-                                <h6 class="list-group-item-heading"><strong>{{Lastname+Firstname}}</strong><span class="pull-right label label-info">+1000 Eic</span></h6>
-                                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                              </a>
-                      </div>
-                        <div class="list-group">
-                          <?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar',array('class'=>'pull-left comment-img'));?>
-                            <p class="list-group-item-text">
-                              <?php echo $this->Form->create('Comment',array('url'=>array('controller'=>'Comment','action'=>'SendComment'))); ?>
-                            <?php echo $this->Form->textarea('context',array('class'=>'comment-form','id'=>'comment-form','placeholder'=>'Ecrire un commentaire')); ?>
-                              <?php echo $this->Form->button('Commenter', array('class'=>"btn btn-info pull-right",'id'=>'btn-comment')); ?>
-                            <?php echo $this->Form->end();?>
-                            </p>
-                        </div>
-                </div>
-              </section>
-          </div>
-        <!-- end comment post-->
-     </div>
-     <!--end post and comment feed list-->
+     <!--section de creation du post template mustache et ajout visuel-->
+     <div id="newpost"></div>
+       <?php echo $this->element('newpost'); ?>
+     <!-- fin de la section de creation du post-->
 
      <!--start post and comment feed list-->
-     <div class="row">
-        <!-- start photo connect-->
-          <div class="col-lg-2">
-              <section class="panel">
-                  <div class="panel-body">{{Image}}</div>
-              </section>
-          </div>
-        <!-- end photo connect-->
-
-        <!-- start comment post-->
-          <div class="col-lg-10">
-              <section class="panel">
-                  <div class="panel-body list-group">
-                    <h5><strong>{{lastname+firstname}}</strong>
-                     <span>
-                        <div class="btn-group pull-right">
-                        <button data-toggle="dropdown" class="btn btn-success dropdown-toggle btn-xs" type="button">Tâches<span class="caret"></span></button>
-                          <ul role="menu" class="dropdown-menu">
-                              <li><a href="#">Modifier l'information</a></li>
-                              <li><a href="#">{{S'abonner ou Se désabonner}} a l'information</a></li>
-                              <li><a href="#">Cacher l'information</a></li>
-                              <li><a href="#">Supprimer l'information</a></li>
-                          </ul>
-                        </div>
-                    </span>
-                    </h5>
-                    <p>{{Sit lundium dapibus scelerisque cras lorem mattis sociis vut pellentesque odio, eu ac elementum, ac integer! Magnis in porttitor proin pellentesque scelerisque risus a dapibus est vel scelerisque. Enim ultricies vel pid? Nisi turpis odio parturient? Rhoncus? In, eu penatibus pulvinar pulvinar. Sit ridiculus. Eros? Urna aenean, elementum. Phasellus tristique, habitasse hac, et nunc! In risus? Elementum lectus penatibus proin. Et amet magna risus, integer pulvinar elit amet mauris lectus. Dictumst rhoncus? Risus nec. Amet natoque! Vel nisi ac elementum eros porttitor, non est egestas magna pulvinar, lorem, adipiscing risus! Mattis sit a. Facilisis aenean nascetur hac dolor, montes et ultrices, dapibus, risus turpis facilisis, eu urna magnis, eros tincidunt in auctor, mus est sit mid ut rhoncus dignissim mus.}}
-                    </p>
-                    <p><?php echo $this->Html->image('http://dummyimage.com/400x650/bbb/05071f.png',array('class'=>'post-img'));?></p>
-                    <span class="t-info"><i class="icon-time"></i> Il y' a 20 minutes - <i class="icon-map-marker"></i>  </span>
-                    <footer class="panel-footer">
-                      <ul class="nav nav-pills">
-                          <li data-original-title="1 de + pour cette information" data-placement="left" class="tooltips">
-                              <a href="#"><span class="label label-info"><i class="icon-thumbs-up"></i> {{1000+}} Eic </span></a>
-                          </li>
-                          <li data-original-title="Commentez l'article" data-placement="top" class="tooltips">
-                              <a href="#"><span class="label label-info"><i class="icon-comments"></i> Commentez </span></a>
-                          </li>
-                          <li data-original-title="Signaler l'article en cas d'abus" data-placement="right" class="tooltips">
-                              <a href="#"><span class="label label-danger"><i class=" icon-warning-sign"></i> Signaler</span></a>
-                          </li>
-                      </ul>
-                      <hr/>
-                      <div>
-                        <span><strong>{{4000+}}</strong> Commentaire{{s}}</span>
-                        <a href="javascript:;"><span class="pull-right label label-info"><i class="icon-plus"></i> de commentaires</span></a>
-                      </div>
-                    </footer>
-                      <div class="list-group">
-                               <a class="list-group-item " href="javascript:;">
-                                <strong><?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar',array('class'=>'pull-left comment-img'));?></strong>
-                                <h6 class="list-group-item-heading"><strong>{{Lastname+Firstname}}</strong><span class="pull-right label label-info">+1000 Eic</span></h6>
-                                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.c, montes amet. Turpis in vel augue. Massa amet urna a, cursus augue in eros rhoncus integer ut. Magnis diam dapibus odio nisi hac, porttitor proin mus? Scelerisque hac nunc, placerat phasellus quis mus nascetur dignissim rhoncus mattis tincidunt phasellus cras scelerisque.
-                                </p>
-                               </a>
-                               <a class="list-group-item " href="javascript:;">
-                                <strong><?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar',array('class'=>'pull-left comment-img'));?></strong>
-                               <h6 class="list-group-item-heading"><strong>{{Lastname+Firstname}}</strong><span class="pull-right label label-info">+1000 Eic</span></h6>
-                               <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.c, montes amet. Turpis in vel augue. Massa amet urna a, cursus augue in eros rhoncus integer ut. Magnis diam dapibus odio nisi hac, porttitor proin mus? Scelerisque hac nunc, placerat phasellus quis mus nascetur dignissim rhoncus mattis tincidunt phasellus cras scelerisque.Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.c, montes amet. Turpis in vel augue. Massa amet urna a, cursus augue in eros rhoncus integer ut. Magnis diam dapibus odio nisi hac, porttitor proin mus? Scelerisque hac nunc, placerat phasellus quis mus nascetur dignissim rhoncus mattis tincidunt phasellus cras scelerisque.</p>
-                              </a>
-                              <a class="list-group-item" href="javascript:;">
-                                <strong><?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar',array('class'=>'pull-left comment-img'));?></strong>
-                                <h6 class="list-group-item-heading"><strong>{{Lastname+Firstname}}</strong><span class="pull-right label label-info">+1000 Eic</span></h6>
-                                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                              </a>
-                      </div>
-                        <div class="list-group">
-                          <?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar',array('class'=>'pull-left comment-img'));?>
-                            <p class="list-group-item-text">
-                              <?php echo $this->Form->create('Comment',array('url'=>array('controller'=>'Comment','action'=>'SendComment'))); ?>
-                            <?php echo $this->Form->textarea('context',array('class'=>'comment-form','id'=>'comment-form','placeholder'=>'Ecrire un commentaire')); ?>
-                              <?php echo $this->Form->button('Commenter', array('class'=>"btn btn-info pull-right",'id'=>'btn-comment')); ?>
-                            <?php echo $this->Form->end();?>
-                            </p>
-                        </div>
-                </div>
-              </section>
-          </div>
-        <!-- end comment post-->
-     </div>
-     <!--end post and comment feed list-->
-
-     <!--start post and comment feed list-->
-     <div class="row">
-        <!-- start photo connect-->
-          <div class="col-lg-2">
-              <section class="panel">
-                  <div class="panel-body">{{Image}}</div>
-              </section>
-          </div>
-        <!-- end photo connect-->
-
-        <!-- start comment post-->
-          <div class="col-lg-10">
-              <section class="panel">
-                  <div class="panel-body list-group">
-                    <h5><strong>{{lastname+firstname}}</strong>
-                     <span>
-                        <div class="btn-group pull-right">
-                        <button data-toggle="dropdown" class="btn btn-success dropdown-toggle btn-xs" type="button">Tâches<span class="caret"></span></button>
-                          <ul role="menu" class="dropdown-menu">
-                              <li><a href="#">Modifier l'information</a></li>
-                              <li><a href="#">{{S'abonner ou Se désabonner}} a l'information</a></li>
-                              <li><a href="#">Cacher l'information</a></li>
-                              <li><a href="#">Supprimer l'information</a></li>
-                          </ul>
-                        </div>
-                    </span>
-                    </h5>
-                    <p>{{Sit lundium dapibus scelerisque cras lorem mattis sociis vut pellentesque odio, eu ac elementum, ac integer! Magnis in porttitor proin pellentesque scelerisque risus a dapibus est vel scelerisque. Enim ultricies vel pid? Nisi turpis odio parturient? Rhoncus? In, eu penatibus pulvinar pulvinar. Sit ridiculus. Eros? Urna aenean, elementum. Phasellus tristique, habitasse hac, et nunc! In risus? Elementum lectus penatibus proin. Et amet magna risus, integer pulvinar elit amet mauris lectus. Dictumst rhoncus? Risus nec. Amet natoque! Vel nisi ac elementum eros porttitor, non est egestas magna pulvinar, lorem, adipiscing risus! Mattis sit a. Facilisis aenean nascetur hac dolor, montes et ultrices, dapibus, risus turpis facilisis, eu urna magnis, eros tincidunt in auctor, mus est sit mid ut rhoncus dignissim mus.}}
-                    </p>
-                    <p><?php echo $this->Html->image('http://dummyimage.com/500x350/bbb/05071f.png',array('class'=>'post-img'));?></p>
-                    <span class="t-info"><i class="icon-time"></i> Il y' a 20 minutes - <i class="icon-map-marker"></i>  </span>
-                    <footer class="panel-footer">
-                      <ul class="nav nav-pills">
-                          <li data-original-title="1 de + pour cette information" data-placement="left" class="tooltips">
-                              <a href="#"><span class="label label-info"><i class="icon-thumbs-up"></i> {{1000+}} Eic </span></a>
-                          </li>
-                          <li data-original-title="Commentez l'article" data-placement="top" class="tooltips">
-                              <a href="#"><span class="label label-info"><i class="icon-comments"></i> Commentez </span></a>
-                          </li>
-                          <li data-original-title="Signaler l'article en cas d'abus" data-placement="right" class="tooltips">
-                              <a href="#"><span class="label label-danger"><i class=" icon-warning-sign"></i> Signaler</span></a>
-                          </li>
-                      </ul>
-                      <hr/>
-                      <div>
-                        <span><strong>{{4000+}}</strong> Commentaire{{s}}</span>
-                        <a href="javascript:;"><span class="pull-right label label-info"><i class="icon-plus"></i> de commentaires</span></a>
-                      </div>
-                    </footer>
-                      <div class="list-group">
-                               <a class="list-group-item " href="javascript:;">
-                                <strong><?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar',array('class'=>'pull-left comment-img'));?></strong>
-                                <h6 class="list-group-item-heading"><strong>{{Lastname+Firstname}}</strong><span class="pull-right label label-info">+1000 Eic</span></h6>
-                                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.c, montes amet. Turpis in vel augue. Massa amet urna a, cursus augue in eros rhoncus integer ut. Magnis diam dapibus odio nisi hac, porttitor proin mus? Scelerisque hac nunc, placerat phasellus quis mus nascetur dignissim rhoncus mattis tincidunt phasellus cras scelerisque.
-                                </p>
-                               </a>
-                               <a class="list-group-item " href="javascript:;">
-                                <strong><?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar',array('class'=>'pull-left comment-img'));?></strong>
-                               <h6 class="list-group-item-heading"><strong>{{Lastname+Firstname}}</strong><span class="pull-right label label-info">+1000 Eic</span></h6>
-                               <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.c, montes amet. Turpis in vel augue. Massa amet urna a, cursus augue in eros rhoncus integer ut. Magnis diam dapibus odio nisi hac, porttitor proin mus? Scelerisque hac nunc, placerat phasellus quis mus nascetur dignissim rhoncus mattis tincidunt phasellus cras scelerisque.Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.c, montes amet. Turpis in vel augue. Massa amet urna a, cursus augue in eros rhoncus integer ut. Magnis diam dapibus odio nisi hac, porttitor proin mus? Scelerisque hac nunc, placerat phasellus quis mus nascetur dignissim rhoncus mattis tincidunt phasellus cras scelerisque.</p>
-                              </a>
-                              <a class="list-group-item" href="javascript:;">
-                                <strong><?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar',array('class'=>'pull-left comment-img'));?></strong>
-                                <h6 class="list-group-item-heading"><strong>{{Lastname+Firstname}}</strong><span class="pull-right label label-info">+1000 Eic</span></h6>
-                                <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                              </a>
-                      </div>
-                        <div class="list-group">
-                          <?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar',array('class'=>'pull-left comment-img'));?>
-                            <p class="list-group-item-text">
-                              <?php echo $this->Form->create('Comment',array('url'=>array('controller'=>'Comment','action'=>'SendComment'))); ?>
-                            <?php echo $this->Form->textarea('context',array('class'=>'comment-form','id'=>'comment-form','placeholder'=>'Ecrire un commentaire')); ?>
-                              <?php echo $this->Form->button('Commenter', array('class'=>"btn btn-info pull-right",'id'=>'btn-comment')); ?>
-                            <?php echo $this->Form->end();?>
-                            </p>
-                        </div>
-                </div>
-              </section>
-          </div>
-        <!-- end comment post-->
-     </div>
+       <div id="allcontent">
+        <span class="contentloading" id="contentloading">
+            <?php echo $this->Html->image('loading.gif',array('id'=>'loading','class'=>'loading')); ?>
+        </span>
+       </div>
+       <?php echo $this->element('allpost'); ?>
      <!--end post and comment feed list-->
   </div>
   <div class="col-lg-3">
@@ -437,4 +208,3 @@
       <!--news actualité-->
     </div>
 </div>
-<!--end general newfeed  content-->
