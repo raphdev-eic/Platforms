@@ -1,7 +1,7 @@
 <div id="newfeed-c" class="hidden">
 {{#feed}}
   {{#Post}}
-   <div class="row" id="ListPostTpl">
+   <div id="{{id}}" class="row postitem">
         <!-- start photo connect-->
           <div class="col-lg-1">
               <section>
@@ -40,10 +40,10 @@
                     <footer class="panel-footer">
                         <ul class="nav nav-pills">
                             <li data-original-title="1 de + pour cette information" data-placement="left" class="tooltips">
-                                <a href=""><span class="label label-info"><i class="icon-thumbs-up"></i>  4000+Eic </span></a>
+                                <a href="#"><span class="label label-info"><i class="icon-thumbs-up"></i>  4000+Eic </span></a>
                             </li>
                             <li data-original-title="Commentez article" data-placement="top" class="tooltips">
-                                <a href=""><span class="label label-info"><i class="icon-comments"></i> Commentez </span></a>
+                                <a href="#comment{{id}}" class="com" id="com/eic{{id}}"><span class="label label-info"><i class="icon-comments"></i> Commentez </span></a>
                             </li>
                             <li data-original-title="Signaler article en cas abus" data-placement="right" class="tooltips">
                                 <a href="#"><span class="label label-danger"><i class=" icon-warning-sign"></i> Signaler</span></a>
@@ -52,12 +52,12 @@
                         <hr/>
                         <div>
                           <span><strong></strong> Commentaire</span>
-                          <a href="#"  id="Post{{id}}" class="like"><span class="pull-right label label-info"><i class="icon-plus"></i> de commentaires</span></a>
+                          <a href="#comment{{postid}}"  id="Post{{id}}" class="like"><span class="pull-right label label-info"><i class="icon-plus"></i> de commentaires</span></a>
                         </div>
                     </footer>
                       <div class="list-group">
                         {{#Comment}}
-                        <a class="list-group-item " href="javascript:;">
+                        <a class="list-group-item" href="javascript:;">
                                 <strong>
                                   {{#User}}
                                       {{#Avatar}}
@@ -73,13 +73,13 @@
                         </a>
                         {{/Comment}}
                       </div>
-                        <div class="list-group">
-                          <?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar',array('class'=>'pull-left comment-img'));?>
+                        <div class="list-group hidden" id="comment{{id}}">
+                          <?php echo $this->Html->image($this->Session->read('Auth.User.Avatar.0.url'),array('class'=>'pull-left comment-img','width'=>35,'height'=>35));?>
                             <p class="list-group-item-text">
                               <?php echo $this->Form->create('Comment',array('url'=>array('controller'=>'Comments','action'=>'SendComment'))); ?>
                                <?php echo $this->Form->input('user_id', array('type'=>'hidden')); ?>
                                <?php echo $this->Form->input('post_id',array('type'=>'hidden','label'=>false,"autocomplete"=>"off")); ?>
-                            <?php echo $this->Form->textarea('context',array('class'=>'comment-form','id'=>'comment-form','placeholder'=>'Ecrire un commentaire')); ?>
+                            <?php echo $this->Form->textarea('context',array('class'=>'comment-form','id'=>'comment-form{{id}}','placeholder'=>'Ecrire un commentaire')); ?>
                               <?php echo $this->Form->button('Commenter', array('class'=>"btn btn-info pull-right btn-comment",'id'=>'1')); ?>
                             <?php echo $this->Form->end();?>
                             </p>

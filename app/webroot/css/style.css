@@ -9559,18 +9559,21 @@ tr.odd.gradeX td.sorting_1, tr.even.gradeX td.sorting_1, table.display tr.even.g
 
 
 .progress{
-
     width:0%;
-
     height:30px;
-
     background:#00A8B3;
-
     padding:0;
-
     margin:0;
-
 }
+
+.progress-b{
+    width:100%;
+    height:15px;
+    background:#F0F2F7;
+    padding:0;
+    margin:0;
+}
+
 
 
 
@@ -9927,6 +9930,104 @@ border-bottom-left-radius: 3px;
 }
 
 .loading{
+  display: none;
   display: block;
   margin: 0 auto;
 }
+
+.blod{
+  font-weight: bold;
+  font-size: 1.5em;
+  color:#E15F55;
+  display: block;
+  line-height: 1.5em;
+}
+
+.blod2{
+  font-weight: bold;
+  font-size: 1.5em;
+  display: block;
+  line-height: 1.5em;
+}
+
+/*Upload drag and drop upload file*/
+.uploadfile{
+    position:relative;
+  height: 450px;
+}
+.uploadfile .lead {
+    display: block;
+    border-bottom: 2px solid #53BEE6;
+    height: 30px;
+    text-align: center;
+}
+
+.footerupload{
+    display: block;
+    height: 60px;
+    border-top: 2px solid #53BEE6;
+    margin:10px 0 5px 5px;
+    padding: 10px 0;
+}
+.ufile{
+  position: absolute;
+  top:225px;
+  left:400px;
+  width: 400px;
+  height:40px;
+  opacity:0;
+}
+.dragbtn{
+  position: absolute;
+  top:225px;
+  left:400px;
+  width: 400px;
+}
+
+.hover{
+    border: 5px solid #53BEE6 !important;
+}
+.text-a{
+    color: #1f1f1f;
+    display: block;
+    margin:0 auto;
+}
+
+.fileinput-button {
+  position: relative;
+  overflow: hidden;
+}
+.fileinput-button input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
+}
+
+.fileinput-button span{
+    color:#1f1f1f;
+}
+
+/* Fixes for IE < 8 */
+@media screen\9 {
+  .fileinput-button input {
+    filter: alpha(opacity=0);
+    font-size: 100%;
+    height: 100%;
+  }
+}
+/*.fileinput-button input {
+  position: static;
+  opacity: 1;
+  filter: none;
+  font-size: inherit;
+  direction: inherit;
+}
+.fileinput-button span {
+  display: none;
+}*/

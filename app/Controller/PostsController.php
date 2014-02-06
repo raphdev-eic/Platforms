@@ -87,6 +87,13 @@ class PostsController extends AppController{
           exit();
        }
        if($this->RequestHandler->isAjax()){
+        /*if($this->request->query['item']){
+          if($this->request->query['item'] >= 1){
+            $postid = $this->request->query['item'];
+          }else{
+            $postid = 1;
+          }
+        }*/
                $all = array();
                //$Postlist = $this->Post->find('all',array('contain'=>array('Post')));
                $Postlist = $this->Post->find('all',array(
@@ -109,23 +116,82 @@ class PostsController extends AppController{
                             'limit'=>1
                         )
                     )),
+                   //'conditions'=>array('Post.id <'=> $postid),
                    'order'=>'Post.created DESC',
                    'limit'=>10
                 ));
                    if(!empty($Postlist)){
-                     echo json_encode($Postlist);
+                      $all = array(
+                         'feed'=>$Postlist
+                      );
+                     echo json_encode($all);
                      exit();
                    }else{
                        $all = array(
                          "reponse" => 0,
-                         "error" => "Aucune information à partager"
+                         "errors" => "Aucune information à partager"
                        );
                        echo json_encode($all);
                        exit();
                    }
               exit();
-       }else{
-
        }
+    }
+
+    public function infinieScrolling(){
+        if(!$this->Auth->user('User.id')){
+                  $this->Auth->logout();
+                  exit();
+               }
+               if($this->RequestHandler->isAjax()){
+                if($this->request->query['item']){
+                  if($this->request->query['item'] >= 1){
+                    $postid = $this->request->query['item'];
+                  }else{
+                    $postid = 1;
+                  }
+                }
+                       $all = array();
+                       //$Postlist = $this->Post->find('all',array('contain'=>array('Post')));
+                       $Postlist = $this->Post->find('all',array(
+                           'contain'=>array('Type',
+                            'Comment'=>array(
+                             'User'=>array(
+                                'fields'=>array('User.id','User.firstname','User.lastname','User.username'),
+                                'Avatar'=>array(
+                                    'fields'=>array('id','url'),
+                                    'order'=>'Avatar.id DESC',
+                                    'limit'=>1
+                                 )
+                              )
+                            ),
+                            'User'=>array(
+                              'fields'=>array('User.id','User.username','User.email'),
+                              'Avatar'=>array(
+                                    'fields'=>array('id','url'),
+                                    'order'=>"Avatar.id DESC",
+                                    'limit'=>1
+                                )
+                            )),
+                           'conditions'=>array('Post.id > '=> $postid),
+                           'order'=>'Post.created DESC',
+                           'limit'=>10
+                        ));
+                           if(!empty($Postlist)){
+                              $all = array(
+                                 'feed'=>$Postlist
+                              );
+                             echo json_encode($all);
+                             exit();
+                           }else{
+                               $all = array(
+                                 "reponse" => 0,
+                                 "errors" => "Aucune information à partager"
+                               );
+                               echo json_encode($all);
+                               exit();
+                           }
+                      exit();
+               }
     }
 }

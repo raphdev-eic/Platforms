@@ -264,7 +264,7 @@
                           <?php if (!$this->Session->check('Auth.User.Avatar.0.url')): ?>
                              <?php echo $this->Html->image('http://dummyimage.com/29x29/bbb/05071f.png&text=avatar'); ?>
                           <?php else: ?>
-                             <?php echo $this->Image->resize($this->Session->read('Auth.User.Avatar.0.url'),29,29); ?>
+                             <?php echo $this->Html->image($this->Session->read('Auth.User.Avatar.0.url'),array('width'=>29,'height'=>29)); ?>
                          <?php endif; ?>
                           <span class="username"><?php echo $this->Session->read('Auth.User.User.username'); ?></span>
                           <b class="caret"></b>
@@ -280,7 +280,7 @@
                   <!-- user login dropdown end -->
               </ul>
           </div>
-      </header> 
+      </header>
       <!--header end-->
       <!--sidebar start-->
       <aside>
@@ -300,8 +300,7 @@
                       </a>
                       <ul class="sub">
                           <li>
-                            <a  href="<?php 
-                            echo $this->Html->url(array('controller'=>'Users','action'=>'profil'));?>">Afficher son profil</a>
+                            <a  href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'profil'));?>">Afficher son profil</a>
                         </li>
                           <li><a  href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'ListFeuil')); ?>">Affiliations</a></li>
                           <li><a  href="#">Cashflow</a></li>
@@ -330,7 +329,7 @@
                   </li>
                   <li class="sub-menu">
                       <a href="<?php echo $this->Html->url(array('controller' => 'Posts', 'action' => 'newsfeed')); ?>">
-                          <i class=" icon-info"></i>
+                          <i class="icon-info"></i>
                           <span>Fil d'actualités</span>
                       </a>
                   </li>
@@ -340,10 +339,10 @@
                           <span>Opérations</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="#">Achat de Parts</a></li>
+                          <li><a  href="<?php echo $this->Html->url(array('controller' => 'Transactions', 'action' => 'PassOrder')); ?>">Passer un Ordre</a></li>
                           <!--<li><a  href="#">virements</a></li>-->
-                          <li><a  href="#">Retrait</a></li>
-                          <!--<li><a  href="#">Achat de Monaie</a></li>-->
+                          <!--<li><a  href="#">Retrait</a></li>-->
+                          <li><a  href="#">Historique</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -397,7 +396,7 @@
     <!-- js placed at the end of the document so the pages load faster -->
     <!-- js placed at the end of the document so the pages load faster -->
     <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 <?php //echo $this->Html->script('jquery'); ?>
 <?php //echo $this->Html->script('jquery-1.8.3.min'); ?>
 <?php echo $this->Html->script('bootstrap.min'); ?>
@@ -413,11 +412,11 @@
 <?php echo $this->Html->script('time.ago'); ?>
 <?php echo $this->Html->script('jquery.countdown'); ?>
 <?php echo $this->Html->script('jquery.countdown-fr'); ?>
-<?php echo $this->Html->script('main');?>
 <?php echo $this->fetch('script'); ?>
 <?php echo $this->Html->script('common-scripts'); ?>
 <?php echo $this->Html->script('sparkline-chart'); ?>
 <?php echo $this->Html->script('easy-pie-chart'); ?>
+<?php echo $this->Html->script('main');?>
 <?php echo $this->Html->script('nailthumb/jquery.nailthumb.1.1.min'); ?>
     <!--<script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

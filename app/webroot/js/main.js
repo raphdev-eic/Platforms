@@ -1,4 +1,4 @@
-$(function(){
+jQuery(function($){
   $("#owl-demo").owlCarousel({
 
       navigation : true,
@@ -70,9 +70,9 @@ $("#comment-form").focus(function(){
   $('.resize').nailthumb();
     var newYear = new Date(2014, 12 - 1, 31); // coorespond à la Date ('annnée,mois,jours') mois = num mois actu -1 (exemple = juin = 6 = 7-1)
 
-     //alert(newYear); 
+     //alert(newYear);
 
-     //newYear = new Date(newYear.getFullYear() + 1, 1 - 1, 1); 
+     //newYear = new Date(newYear.getFullYear() + 1, 1 - 1, 1);
 
     $.countdown.setDefaults($.countdown.regional['fr']);
 
@@ -82,4 +82,43 @@ $("#comment-form").focus(function(){
 
     });
 
+//calcule du montant du devis
+ $('#nbpart').keyup(function(){
+    var vl = jQuery.trim($('#vl strong').html());
+    var parts = jQuery.trim($(this).val());
+    var montant = 1100 + (vl*parts) + ' FCFA';
+    $('#mont').empty().text(montant).addClass('blod');
+ });
+
+
+   $('#fileupload').fileupload({
+        dataType: 'json',
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+                $('<p/>').text(file.name).appendTo('#filelist');
+            });
+        },
+        progressall: function (e, data) {
+            var progress = parseInt(data.loaded / data.total * 100, 10);
+              $('#progress .progress-bar').css('width',progress + '%');
+              $(".text-a").empty().html(progress +'%');
+        }
+    });
+
+     /* $('#uploadfile').bind({
+           fileuploaddone : function (e, data){
+              $.each(data.result.files, function (index, file) {
+                  $('<p/>').text(file.name).appendTo('#filelist');
+              });
+           },
+           fileuploadprogressall : function(e,data){
+              var progress = parseInt(data.loaded / data.total * 100, 10);
+                $('#progress .progress-bar').css('width',progress + '%');
+                $(".text-a").empty().html(progress +'%');
+           },
+           fileuploadadd:function(e,data){
+
+           }
+
+      });*/
 });

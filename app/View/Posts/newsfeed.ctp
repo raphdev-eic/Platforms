@@ -50,7 +50,7 @@
      <!-- fin de la section de creation du post-->
 
      <!--start post and comment feed list-->
-       <div id="allcontent">
+       <div id="allcontent" class="allcontent">
         <span class="contentloading" id="contentloading">
             <?php echo $this->Html->image('loading.gif',array('id'=>'loading','class'=>'loading')); ?>
         </span>
@@ -206,5 +206,6 @@
       <!--news actualité-->
     </div>
 </div>
+<?php echo $this->Html->script('jquery.livequery',array('inline'=>false)); ?>
 <?php echo $this->Html->script('ajax/jquery.postInfo',array('inline'=>false)); ?>
 
