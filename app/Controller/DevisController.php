@@ -45,7 +45,8 @@ class DevisController extends AppController{
 
     public function GetDevis(){
     	$list = $this->Devi->find('first',array(
-         'contain'=>array('User'=>array('fields'=>'parts','key_auth','email','firstname','lastname'))
+         'contain'=>array('User'=>array('fields'=>'parts','key_auth','email','firstname','lastname')),
+         'order'=>array('Devi.created DESC')
     	));
         if(!empty($list)){
             $this->Session->write('transaction',$list);

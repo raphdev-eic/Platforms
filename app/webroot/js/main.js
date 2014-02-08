@@ -90,35 +90,5 @@ $("#comment-form").focus(function(){
     $('#mont').empty().text(montant).addClass('blod');
  });
 
-
-   $('#fileupload').fileupload({
-        dataType: 'json',
-        done: function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                $('<p/>').text(file.name).appendTo('#filelist');
-            });
-        },
-        progressall: function (e, data) {
-            var progress = parseInt(data.loaded / data.total * 100, 10);
-              $('#progress .progress-bar').css('width',progress + '%');
-              $(".text-a").empty().html(progress +'%');
-        }
-    });
-
-     /* $('#uploadfile').bind({
-           fileuploaddone : function (e, data){
-              $.each(data.result.files, function (index, file) {
-                  $('<p/>').text(file.name).appendTo('#filelist');
-              });
-           },
-           fileuploadprogressall : function(e,data){
-              var progress = parseInt(data.loaded / data.total * 100, 10);
-                $('#progress .progress-bar').css('width',progress + '%');
-                $(".text-a").empty().html(progress +'%');
-           },
-           fileuploadadd:function(e,data){
-
-           }
-
-      });*/
 });
+

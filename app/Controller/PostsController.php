@@ -118,7 +118,7 @@ class PostsController extends AppController{
                     )),
                    //'conditions'=>array('Post.id <'=> $postid),
                    'order'=>'Post.created DESC',
-                   'limit'=>10
+                   'limit'=>20
                 ));
                    if(!empty($Postlist)){
                       $all = array(

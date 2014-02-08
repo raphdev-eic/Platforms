@@ -45,6 +45,11 @@ class TransactionsController extends AppController{
                 $this->Session->setFlash("Votre Devis a été enregistré avec success .Notez qu'il est valide seulement pour 24h !
                     Apres cette date il sera annulé <br> Veuillez vous rendre a l'agence ECOBANK
                     la plus proche de votre localité pour effectuer votre Versement",'success');
+                //suppression de la session transcation
+                    $this->Session->delete('transaction');
+                //Cretion d'un nouvelle session qui recupre le id pour l'enregistrer dans le ref_id
+                    $acc = $this->Transaction->getInsertID();
+                    $this->Session->write('ref_id',$acc);
                 $this->redirect(array('controller'=>'Borderos','action'=>'UploadBorderos'));
 	        }else{
               $this->Session->setFlash("Désoler la Transaction à echouer",'error');
