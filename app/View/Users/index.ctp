@@ -101,15 +101,14 @@
         </div>
         <div class="col-lg-3 col-sm-6">
             <section class="panel">
-                <div class="symbol blue">
-                    <i class="icon-bar-chart"></i>
+                <div class="symbol google-green">
+                    <i class=" icon-stackexchange"></i>
                 </div>
                 <div class="value">
-                  <?php $FundValue = (int)$vl['Value']['current'] * (int)$parts['User']['parts']; ?>
-                    <h4>
-                       <?php echo $FundValue; ?> 
+                    <h4 class=" count4">
+                        0
                     </h4>
-                    <p>Portefeuille en (FCFA)</p>
+                    <p>Votre Cashflow</p>
                 </div>
             </section>
         </div>
@@ -156,23 +155,10 @@
                 </div>
             </section>
         </div>
-        <div class="col-lg-3 col-sm-6">
-            <section class="panel">
-                <div class="symbol google-green">
-                    <i class=" icon-stackexchange"></i>
-                </div>
-                <div class="value">
-                    <h4 class=" count4">
-                        0
-                    </h4>
-                    <p>Votre Cashflow</p>
-                </div>
-            </section>
-        </div>
     </div>
     <!--state overview end -2-->
-<!--end aquire-->
-<div class="row">  
+    <!--end aquire-->
+     <div class="row">
                   <div class="col-lg-8">
                     <section class="panel">
                       <div class="panel-body">
@@ -279,13 +265,6 @@
                       <!--total earning end-->
                   </div>
               </div>
-            <!--google agenda integration start-->
-              <div class="row">
-                  <div class="col-lg-12" id="calendar">
-                    <button id="authorize-button" style="visibility: hidden">Authorize</button>
-                  </div>
-              </div>
-            <!--google agenda end integration-->
             <!--l'investisserur le plus actif-->
             <div class="row">
              <div class="col-lg-4"><h3> <i class='icon-star-empty'></i> Investisseur Actif</h3></div>

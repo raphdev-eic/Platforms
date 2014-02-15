@@ -249,7 +249,7 @@
               <a href="#" class="pull-right obje">
                   <span class="numbers" id="numbers"></span
               </a>
-              <a href="#" class='btn btn-danger pull-right'><i class="icon-shopping-cart"></i> Achat de parts</a>
+              <a href="<?php echo $this->Html->url(array('controller' => 'Transactions', 'action' => 'PassOrder')); ?>" class='btn btn-danger pull-right'><i class="icon-shopping-cart"></i> Achat de parts</a>
               <!-- notification dropdown end -->
           </ul>
           </div>
@@ -296,7 +296,7 @@
                   <li class="sub-menu">
                       <a href="javascript:;">
                           <i class="icon-user"></i>
-                          <span>Comptes</span>
+                          <span>Compte</span>
                       </a>
                       <ul class="sub">
                           <li>
@@ -328,7 +328,7 @@
                       </a>
                   </li>
                   <li class="sub-menu">
-                      <a href="<?php echo $this->Html->url(array('controller' => 'Posts', 'action' => 'newsfeed')); ?>">
+                      <a href="<?php //echo $this->Html->url(array('controller' => 'Posts', 'action' => 'newsfeed')); ?>">
                           <i class="icon-info"></i>
                           <span>Fil d'actualités</span>
                       </a>
@@ -340,9 +340,9 @@
                       </a>
                       <ul class="sub">
                           <li><a  href="<?php echo $this->Html->url(array('controller' => 'Transactions', 'action' => 'PassOrder')); ?>">Passer un Ordre</a></li>
-                          <!--<li><a  href="#">virements</a></li>-->
-                          <!--<li><a  href="#">Retrait</a></li>-->
-                          <li><a  href="#">Historique</a></li>
+                          <li><a href="<?php echo $this->Html->url(array('controller' => 'Transactions', 'action' => 'PurchasesHistrory')); ?>">Historiques Achats</a></li>
+                          <!--<li><a  href="#">Retrait</a></li>
+                          <li><a  href="#">Historique retrait</a></li>-->
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -351,9 +351,10 @@
                           <span>Variations</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="#">Analyses</a></li>
+                          <li><a  href="<?php echo $this->Html->url(array('controller' => 'Transactions', 'action' => 'Rendement')); ?>">Rendements</a></li>
+                          <!--<li><a  href="#">Analyses</a></li>
                           <li><a  href="#">Economiques</a></li>
-                          <li><a  href="#">Statistiques</a></li>
+                          <li><a  href="#">Statistiques</a></li>-->
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -385,7 +386,7 @@
       <!--sidebar end-->
       <!--main content start-->
       <section id="main-content">
-          <section class="wrapper">
+          <section class="wrapper site-min-height">
               <!-- page start-->
               <?php echo $this->fetch('content'); ?>
               <!-- page end-->
@@ -397,8 +398,6 @@
     <!-- js placed at the end of the document so the pages load faster -->
     <!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<?php //echo $this->Html->script('jquery'); ?>
-<?php //echo $this->Html->script('jquery-1.8.3.min'); ?>
 <?php echo $this->Html->script('bootstrap.min'); ?>
 <?php echo $this->Html->script('jquery.dcjqaccordion.2.7'); ?>
 <?php echo $this->Html->script('jquery.scrollTo.min'); ?>

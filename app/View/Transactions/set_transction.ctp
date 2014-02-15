@@ -12,7 +12,7 @@
                                        <i class="icon-ok-sign"></i>
                                        Félicitation!
                                    </h4>
-                                   <p>Vous etes sur le point de finaliser votre achat de parts. Veuillez cliquer sur le bouton "Passer l'ordre" pour joindre votre borderos et terminer le processus</p>
+                                   <p>Vous etes sur le point de finaliser votre achat de parts. Veuillez cliquer sur le bouton "Passer l'ordre" pour joindre votre bordereau et terminer le processus</p>
                             </div>
                         <!--end flash message-->
                           <div class="row invoice-list">
@@ -21,7 +21,7 @@
                               </div>
                               <div class="clearfix"></div>
                               <div class="col-lg-4 col-sm-4">
-                                  <h4>Informations personels</h4>
+                                  <h4>Informations personelles</h4>
                                   <p>
                                      Nom : <?php echo $this->Session->read('transaction.User.firstname').' '.$this->Session->read('transaction.User.lastname'); ?> <br>
                                      Signature : <?php echo $this->Session->read('transaction.User.key_auth'); ?> <br>
@@ -32,17 +32,17 @@
 				                  <h4>Compte ECOBANK</h4>
 				                  <p>
 				                      Entreprise: EAGLE INVESTMENT CAPITAL<br>
-				                      Numero de Compte: <strong>0010121200321802 </strong><br>
+				                      Numéro de Compte: <strong>0010121200321802 </strong><br>
 				                      Code Agence: <br>
 				                      Tel: +225 00225 22437577
 				                  </p>
 				                </div>
                               <div class="col-lg-4 col-sm-4">
-                                  <h4>INVOICE INFO</h4>
+                                  <h4>Facture</h4>
                                   <ul class="unstyled">
-                                      <li>Invoice Number : <strong><?php echo $num; ?></strong></li>
-                                      <li>Invoice Date		: <?php echo date('Y-m-d'); ?></li>
-                                      <li>Invoice Status		: <span class="label label-danger"> Non Payé</span></li>
+                                      <li> Numéro facture : <strong><?php echo $num; ?></strong></li>
+                                      <li> Date		: <?php echo date('Y-m-d'); ?></li>
+                                      <li> Status		: <span class="label label-danger"> Non Payé</span></li>
                                   </ul>
                               </div>
                           </div>

@@ -42,30 +42,57 @@
                   <h2>Virement Bancaire</h2>
                 </div>
                 <div class="col-lg-4 col-sm-4">
-                  <h4>Compte ECOBANK</h4>
+                  <h4>ECOBANK CÔTE D'IVOIRE</h4>
                   <p>
-                      Entreprise: EAGLE INVESTMENT CAPITAL<br>
-                      Numero de Compte: <strong>0010121200321802 </strong><br>
-                      Code Agence: <br>
-                      Tel: +225 00225 22437577
+                      Intitulé: EIC<br>
+                      Numero de Compte: <strong>0010121200321802 </strong>
                   </p>
                 </div>
                 <div class="col-lg-4 col-sm-4">
-                  <h4>Compte GTBANK</h4>
+                  <h4>ECOBANK BURKINA FASO</h4>
                   <p>
-                      Entreprise: EAGLE INVESTMENT CAPITAL <br>
-                      Numero de Compte: <strong>000000021836</strong><br>
-                      Code d'agence: 01202<br>
-                      Tel: +225 00225 22437577
+                      Intitulé: EIC<br>
+                      Numero de Compte: <strong>101678801012</strong><br>
+                      Code Guichet : 01001 <br/>
+                      Cle RIB: 82
                   </p>
                 </div>
                 <div class="col-lg-4 col-sm-4">
-                  <h4>EiC Corporation - Contacts</h4>
+                  <h4>ECOBANK SENEGAL</h4>
                   <p>
-                      Abidjan Côte d'ivoire <br>
-                      Rivera II <br>
-                      Attoban ST Bernard<br>
-                      Tel: +225 00225 22437577
+                      Intitulé: EDC Investment Corporation<br>
+                      Numero de Compte: <strong> 0010611000899901 </strong><br>
+                  </p>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                  <h4>ECOBANK BENIN</h4>
+                  <p>
+                      Intitulé: EIC<br>
+                      Numero de Compte: <strong>0019211111950701 </strong><br>
+                  </p>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                  <h4>ECOBANK MALI</h4>
+                  <p>
+                      CODE BANQUE: D 0090B<br>
+                      CODE GUICHET: 01001<br>
+                      Numero de Compte: <strong>199905604016</strong><br>
+                      Code RIB:09 <br>
+                      Intitulé: EIC
+                  </p>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                  <h4> ECOBANK NIGER</h4>
+                      Intitulé: EDC Investment Corporation<br>
+                      Numero de Compte: <strong> 001921160234601 </strong><br>
+                  </p>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                  <h4> ECOBANK TOGO</h4>
+                  <p>
+                      Intitulé: EIC<br>
+                      Numero de Compte: <strong> 7010121402977001</strong><br/>
+                      Numero de Compte: <strong> 0019211602034601</strong>
                   </p>
                 </div>
             </div>

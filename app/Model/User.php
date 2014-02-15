@@ -55,14 +55,10 @@ class User extends AppModel {
 
 
 
-/**
+/*
+ * belongsTo associatio
 
- * belongsTo associations
-
- *
-
- * @var array
-
+ * @var arr
  */
 
 	public $belongsTo = array(
@@ -183,14 +179,10 @@ class User extends AppModel {
 
 
 
-/**
-
- * hasMany associations
-
- *
-
- * @var array
-
+/*
+ * hasMany association
+ 
+ * @var arra
  */
 
 	public $hasMany = array(
@@ -542,13 +534,9 @@ class User extends AppModel {
 
 
 /**
-
  * hasAndBelongsToMany associations
-
  *
-
  * @var array
-
  */
 
 	public $hasAndBelongsToMany = array(
@@ -657,8 +645,6 @@ class User extends AppModel {
 
 		//regle de validation des données
 
-		
-
 		public $validate = array(
 
 		'username'=>array(
@@ -743,7 +729,7 @@ class User extends AppModel {
 
 			  'required'=>true
 
-		),    
+		),
 
 		'lastname'=>array(
 
@@ -789,7 +775,6 @@ class User extends AppModel {
 
 		//generation de code d'inscription
 
-		
 
 		public function genarateCodeinc( $num = 12 ){
 
@@ -807,7 +792,7 @@ class User extends AppModel {
 
 					}
 
-				$resultat=$user; 
+				$resultat=$user;
 
 				return $resultat;
 
@@ -816,8 +801,6 @@ class User extends AppModel {
 
 
 		//generation du key auth
-
-		
 
 		public function generateKeyAuth( $num = 32){
 
@@ -841,12 +824,37 @@ class User extends AppModel {
 
 		}
 
+/**
+ * [generateKeyInvoce description]
+ * @param  integer $num [description]
+ * @return [type]       [description]
+ */
+		public function generateKeyInvoce($num = 10){
+
+				$resultat = array();
+
+				$user ="";
+
+				$invoce = "0123456789";
+
+				srand((double)microtime()*1000000);
+
+					for($i=0; $i<$num; $i++) {
+
+					$user .= $invoce[rand()%strlen($invoce)];
+
+					}
+
+				$resultat = $user;
+
+				return $resultat;
+
+		}
+
 
 
 		/**
-
 		 * function de comparaison du mot de passe
-
 		 */
 
 
@@ -866,17 +874,10 @@ class User extends AppModel {
 
 
 		/**
-
 		 * function d'envoi de mail
-
 		 * @param  [type] $data [description]
-
 		 * @return [type]       [description]
-
 		 */
-
-		
-
 		public function send($data){
 
 			  $this->set($data);
@@ -899,19 +900,15 @@ class User extends AppModel {
 
 				return $mail->send();
 
-		} 
+		}
 
-		
 
 
 
 		/**
-
 		 * User find info
-
 		 */
 
-		
 
 		public function getUserInfo($id_Auth){
 
@@ -931,12 +928,9 @@ class User extends AppModel {
 
 		}
 
-        
 
         /**
-
          * [CountChild description]
-
          */
 
 		public function CountChild($id){

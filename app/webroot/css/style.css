@@ -9997,3 +9997,8 @@ border-bottom-left-radius: 3px;
     display: block;
     margin:0 auto;
 }
+/*table*/
+    th[scope=row] {
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    }

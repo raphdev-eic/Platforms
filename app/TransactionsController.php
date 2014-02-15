@@ -28,8 +28,6 @@ class TransactionsController extends AppController{
 		$this->loadModel('User');
 		$num = date('Y').'-'.$this->Transaction->User->generateKeyInvoce();
 		$this->set(compact('num'));
-		$year = $this->Transaction->Year();
-		$old = $year['Year']['id'];
 		//creation de l'ordre d'achat de parts
 		if($this->request->data && $this->request->is('post')){
 			/*debug($this->request->data);
@@ -41,8 +39,7 @@ class TransactionsController extends AppController{
               'numero'=>$num,
               'status'=>0,
               'user_id'=>$this->Auth->user('User.id'),
-              'operation_id'=>1,
-              'year_id'=>$old
+              'operation_id'=>1
             );
             $this->Transaction->create();
 	        if($this->Transaction->save($data)){
@@ -62,54 +59,23 @@ class TransactionsController extends AppController{
 	}
 
 	public function PurchasesHistrory(){
-		 $user_id = $this->Auth->user('User.id');
-		 /*if(!$user){
-		 	throw new NoFoundException("Vous n'etes plus connecté veuillez vous reconnecter", 404);
-		 }*/
 		 $sum = array();
-		 $history = $this->Transaction->Year->find('all',array(
-          'contain'=>array(
-            'Transaction'=>array(
-                 'conditions'=>array(
-                      'Transaction.user_id'=>$user_id,
-                      'Transaction.operation_id'=>1,
-                      'Transaction.status'=>1
-                 )
-            ),
-          ),
-          'order'=>array('Year.year Asc'),
-          'limit'=>2
-		 ));
-		 $total = $this->Transaction->sommeDepot($user_id);
+		 $user_id = $this->Auth->user('User.id');
+	     $history = $this->Transaction->find('all',array(
+	     	'contain'=>array('User'=>array('fields'=>array('id','key_auth','email')),'Operation'),
+	        'conditions'=>array(
+	        	'Transaction.operation_id'=>1,
+	        	'Transaction.user_id'=>$user_id,
+	        	'Transaction.status'=>1
+	        ),
+	        'order'=>array('Transaction.created Desc'),
+	        'group'=>array('Transaction.created')
+	     ));
+	     foreach ($history as $k => $v) {
+	     	$sum[] = $v['Transaction']['quantity'] * $v['Transaction']['price'];
+	     }
+         $total = $this->Transaction->sommeDepot($user_id);
 	     $this->set(compact('history','total'));
-	}
-
-	public function Rendement(){
-		 $user_id = $this->Auth->user('User.id');
-		 /*if(!$user){
-		 	throw new NoFoundException("Vous n'etes plus connecté veuillez vous reconnecter", 404);
-		 }*/
-		 $sum = array();
-		 $rendement = $this->Transaction->Year->find('all',array(
-          'contain'=>array(
-            'Transaction'=>array(
-                 'conditions'=>array(
-                      'Transaction.user_id'=>$user_id,
-                      'Transaction.operation_id'=>1,
-                      'Transaction.status'=>1
-                 )
-            ),
-          ),
-          'order'=>array('Year.year Asc'),
-          'limit'=>2
-		 ));
-		 $this->loadModel('Value');
-		 $val = $this->Value->find('first',array(
-           'order'=>array('Value.created Desc')
-		 ));
-         $vl = $val['Value']['current'];
-         $fund = $this->Transaction->FundsValue($user_id,$vl);
-		 $this->set(compact('rendement','vl','fund'));
 	}
 
 }

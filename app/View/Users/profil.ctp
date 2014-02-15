@@ -17,8 +17,8 @@
 
                           <ul class="nav nav-pills nav-stacked">
                               <li><a href="<?php echo $this->Html->url(array('controller' => 'Users', 'action' => 'profil')); ?>"> <i class="icon-user"></i> Profile</a></li>
-                              <li><a href="#"> <i class="icon-calendar"></i> Recent Activites <span class="label label-danger pull-right r-activity"></span></a></li>
-                              <li><a href="<?php echo $this->Html->url(array('controller' => 'Users', 'action' => 'edit',$userInfo['Profile']['id'])); ?>"> <i class="icon-edit"></i> Editer profile</a></li>
+                              <li><a href="#"> <i class="icon-calendar"></i>Activités récentes<span class="label label-danger pull-right r-activity"></span></a></li>
+                              <li><a href="<?php echo $this->Html->url(array('controller' => 'Users', 'action' => 'edit',$userInfo['Profile']['id'])); ?>"> <i class="icon-edit"></i> Editer mon profile</a></li>
                               <li><a href="#"><i class="icon-time"></i> Expiration du membership dans <i class="icon-level-down"></i></a></li>
                           </ul>
                           <?php
@@ -64,26 +64,26 @@
                       </section>
                       <section class="panel">
                           <div class="bio-graph-heading">
-                             Votre Profil utilisateur vous permet de modifier , voir vos informations , vous pouvez y poster des informations dans la vielle economique!
+                             Votre Profil utilisateur vous permet de modifier , voir vos informations , vous pouvez y poster des informations de la vielle economique!
                           </div>
                           <div class="panel-body bio-graph-info">
-                              <h1>Bio Graph</h1>
+                              <h1>Informations personnelles</h1>
                               <div class="row">
                                   <div class="bio-row">
-                                      <p><span>First Name </span>:  <?php echo (!empty($userInfo['User']['firstname'])) ? ucfirst($userInfo['User']['firstname']) : 'Aucun nom renseignez';?></p>
+                                      <p><span>Nom </span>:  <?php echo (!empty($userInfo['User']['firstname'])) ? ucfirst($userInfo['User']['firstname']) : 'Aucun nom renseignez';?></p>
                                   </div>
                                   <div class="bio-row">
-                                      <p><span>Last Name </span>:  <?php echo (!empty($userInfo['User']['lastname'])) ? ucfirst($userInfo['User']['lastname']) : 'Aucun prenom renseignez';?></p>
+                                      <p><span>Prénom</span>:  <?php echo (!empty($userInfo['User']['lastname'])) ? ucfirst($userInfo['User']['lastname']) : 'Aucun prenom renseignez';?></p>
                                   </div>
                                   <div class="bio-row">
-                                      <p><span>Country </span>:  <?php echo (!empty($userInfo['Country']['name'])) ? ucfirst($userInfo['Country']['name']) : 'Aucun pays';?></p>
+                                      <p><span>Pays </span>:  <?php echo (!empty($userInfo['Country']['name'])) ? ucfirst($userInfo['Country']['name']) : 'Aucun pays';?></p>
                                   </div>
                                   <div class="bio-row">
                                       <p><span>Programme</span>:  <?php echo (!empty($userInfo['Program']['name'])) ?
                                        $userInfo['Program']['name'] : 'Aucune programme'; ?></p>
                                   </div>
                                   <div class="bio-row">
-                                      <p><span>Occupation </span>: <?php echo (!empty($userInfo['Profile']['fonction'])) ? $userInfo['Profile']['fonction'] : 'Aucune fonction'; ?></p>
+                                      <p><span>Profession </span>: <?php echo (!empty($userInfo['Profile']['fonction'])) ? $userInfo['Profile']['fonction'] : 'Aucune fonction'; ?></p>
                                   </div>
                                   <div class="bio-row">
                                       <p><span>Email </span>:  <?php echo (!empty($userInfo['User']['email'])) ? $userInfo['User']['email'] : 'Aucune adresse mail';?></p>
@@ -92,7 +92,7 @@
                                       <p><span>Mobile </span>: <?php echo (!empty($userInfo['Profile']['mobile'])) ? $userInfo['Profile']['mobile'] : 'Aucun numero';?></p>
                                   </div>
                                   <div class="bio-row">
-                                      <p><span>Phone </span>:  <?php echo (!empty($userInfo['Profile']['phone'])) ? $userInfo['Profile']['phone'] : 'Aucun numero';?></p>
+                                      <p><span>Téléphone </span>:  <?php echo (!empty($userInfo['Profile']['phone'])) ? $userInfo['Profile']['phone'] : 'Aucun numero';?></p>
                                   </div>
                               </div>
                           </div>
@@ -108,10 +108,10 @@
                                       <p><span>N° de compte </span>: <?php echo (!empty($userInfo['Compte']['number'])) ? $userInfo['Compte']['number'] : 'Compte en attente';?></p>
                                   </div>
                                   <div class="bio-row">
-                                      <p><span>Birthday</span>: <?php echo (!empty($userInfo['User']['date_nais'])) ? date('d F Y',strtotime($userInfo['User']['date_nais'])) : 'Aucune date de naissance'; ?></p>
+                                      <p><span>Date de naissance</span>: <?php echo (!empty($userInfo['User']['date_nais'])) ? date('d F Y',strtotime($userInfo['User']['date_nais'])) : 'Aucune date de naissance'; ?></p>
                                   </div>
                                   <div class="bio-row">
-                                      <p><span>InvestorCode </span>: <strong class='label label-info'><?php echo (!empty($userInfo['User']['key_auth'])) ? $userInfo['User']['key_auth'] : 'Code en attente' ?></strong></p>
+                                      <p><span>Code investisseur </span>: <strong class='label label-info'><?php echo (!empty($userInfo['User']['key_auth'])) ? $userInfo['User']['key_auth'] : 'Code en attente' ?></strong></p>
                                   </div>
                                   <div class="bio-row">
                                       <p><span>Banque :</span>: <strong><?php echo (!empty($userInfo['Compte']['bank'])) ? $userInfo['Compte']['bank'] : 'Banque en attente' ?></strong></p>
@@ -132,18 +132,13 @@
                                       <p><span>Parts </span>: <strong class="label label-primary"><?php echo (!empty($userInfo['User']['parts'])) ? ucfirst($userInfo['User']['parts']) : 'Aucun parts';?> <?php echo ($userInfo['User']['parts'] > 1) ? 'Actions'  : 'Action' ;?></strong></p>
                                   </div>
                                   <div class="bio-row">
-                                      <p><span>Portefeuille </span>: <strong class="label label-success"> <?php 
-                                       $valeur = (int)$userInfo['User']['parts'] * (int)$vl['Value']['current']; echo $valeur .' '.'FCFA';
-                                       ?></strong></p>
-                                  </div>
-                                  <div class="bio-row">
                                       <p><span>Membership </span>: <strong class="label label-danger"><?php echo (!empty($userInfo['Rank']['membership'])) ? substr($userInfo['Rank']['membership'],0,-2).' '.'FCFA' : 'Aucun membership';?></strong></p>
                                   </div>
                                   <div class="bio-row">
                                       <p><span>Expiration </span>: <?php echo date('d F Y',strtotime($userInfo['User']['date_expire'])); ?></p>
                                   </div>
                                   <div class="bio-row">
-                                      <p><span>Debut </span>:   <?php echo date('d F Y',strtotime($userInfo['User']['date_debut'])); ?></span></p>
+                                      <p><span>Début </span>:   <?php echo date('d F Y',strtotime($userInfo['User']['date_debut'])); ?></span></p>
                                   </div>
                               </div>
                           </div>
@@ -160,14 +155,14 @@
                                     <td>
                                         <i class="icon-tasks"></i>
                                     </td>
-                                    <td>Nombre de sujet créer</td>
+                                    <td>Nombre de sujets crées</td>
                                     <td> 0</td>
                                 </tr>
                                 <tr>
                                     <td>
                                         <i class="icon-group"></i>
                                     </td>
-                                    <td>Nombre d'abonnées</td>
+                                    <td>Nombre d'abonnés</td>
                                     <td> 0</td>
                                 </tr>
                                 <tr>
@@ -181,7 +176,7 @@
                                     <td>
                                         <i class="icon-bell-alt"></i>
                                     </td>
-                                    <td>Nouvelles notification</td>
+                                    <td>Nouvelles notifications</td>
                                     <td> 0</td>
                                 </tr>
                               </tbody>
@@ -194,7 +189,7 @@
                       <section class="panel">
                           <div class="panel-body progress-panel">
                               <div class="task-progress">
-                                  <h1>Progression Chiffrée sur le temps</h1>
+                                  <h1>Progression Chiffrée dans le temps</h1>
                                   <p><?php echo ucfirst($this->Session->read('Auth.User.User.lastname')); ?>   
                                     <?php echo ucfirst($this->Session->read('Auth.User.User.firstname')); ?>
                                    </p>
@@ -212,7 +207,7 @@
                               <tr>
                                   <td>1</td>
                                   <td>
-                                      Total Operations effectué
+                                      Total des opérations effectuées
                                   </td>
                                   <td>
                                       <span class="badge bg-important">0</span>
@@ -224,7 +219,7 @@
                               <tr>
                                   <td>2</td>
                                   <td>
-                                      Nombre de badges Obtenu
+                                      Nombre de badges Obtenus
                                   </td>
                                   <td>
                                       <span class="badge bg-success">0</span>
