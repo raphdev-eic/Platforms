@@ -43,7 +43,7 @@
                                     <?php foreach ($operation as $j => $r): ?>
                                       <?php $sub_total[] = $r['quantity'] * $vl; ?>
                                         <tr>
-                                            <td><?php echo $r['updated'] ?></td>
+                                            <td><?php echo $r['created'] ?></td>
                                             <td><?php echo $emont = $r['quantity'] * $r['price'] ;  ?></td>
                                             <td class="numeric"><?php echo $pr = $r['quantity']; ?></td>
                                             <td class="numeric"><?php echo $vi = $r['price']; ?></td>

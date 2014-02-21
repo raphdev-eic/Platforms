@@ -303,10 +303,10 @@
                             <a  href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'profil'));?>">Afficher son profil</a>
                         </li>
                           <li><a  href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'ListFeuil')); ?>">Affiliations</a></li>
-                          <li><a  href="#">Cashflow</a></li>
+                          <li><a  href="<?php //echo $this->Html->url(array('controller' => 'Cashflows', 'action' => 'index')); ?>">Cashflows</a></li>
                       </ul>
                   </li>
-                  <li class="sub-menu">
+                  <!--<li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="icon-tasks"></i>
                           <span>Tests</span>
@@ -319,20 +319,20 @@
                           <li><a  href="#">E-business</a></li>
                           <li><a  href="#">Investment club</a></li>
                         </ul>
-                  </li>
-                  <li class="sub-menu">
+                  </li>-->
+                 <!-- <li class="sub-menu">
                       <a href="#" >
                           <i class="icon-envelope"></i>
                           <span>Messages</span>
                           <!--<span class="label label-danger pull-right mail-info">2</span>-->
-                      </a>
-                  </li>
-                  <li class="sub-menu">
+                      <!--</a>
+                  </li>-->
+                  <!--<li class="sub-menu">
                       <a href="<?php //echo $this->Html->url(array('controller' => 'Posts', 'action' => 'newsfeed')); ?>">
                           <i class="icon-info"></i>
                           <span>Fil d'actualités</span>
                       </a>
-                  </li>
+                  </li>-->
                   <li class="sub-menu">
                       <a href="javascript:;">
                           <i class="icon-shopping-cart"></i>
@@ -351,13 +351,13 @@
                           <span>Variations</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="<?php echo $this->Html->url(array('controller' => 'Transactions', 'action' => 'Rendement')); ?>">Rendements</a></li>
+                          <li><a  href="<?php //echo $this->Html->url(array('controller' => 'Transactions', 'action' => 'Rendement')); ?>">Rendements</a></li>
                           <!--<li><a  href="#">Analyses</a></li>
                           <li><a  href="#">Economiques</a></li>
                           <li><a  href="#">Statistiques</a></li>-->
                       </ul>
                   </li>
-                  <li class="sub-menu">
+                 <!-- <li class="sub-menu">
                       <a href="javascript:;">
                           <i class="icon-suitcase"></i>
                           <span>Projets</span>
@@ -379,7 +379,7 @@
                           <span>Ressources</span>
                       </a>
                   </li>
-              </ul>
+              </ul>-->
               <!-- sidebar menu end-->
           </div>
       </aside>
@@ -413,18 +413,11 @@
 <?php echo $this->Html->script('jquery.countdown-fr'); ?>
 <?php echo $this->fetch('script'); ?>
 <?php echo $this->Html->script('common-scripts'); ?>
+<?php echo $this->fetch('script2'); ?>
 <?php echo $this->Html->script('sparkline-chart'); ?>
 <?php echo $this->Html->script('easy-pie-chart'); ?>
 <?php echo $this->Html->script('main');?>
 <?php echo $this->Html->script('nailthumb/jquery.nailthumb.1.1.min'); ?>
-    <!--<script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-46080775-1', 'eic-corporation.com');
-      ga('send', 'pageview');
-    </script>-->
      <script>
           //owl carousel
           $(document).ready(function() {
@@ -441,5 +434,18 @@
               $('select.styled').customSelect();
           });
       </script>
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-48181155-1']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>
   </body>
 </html>

@@ -1,28 +1,11 @@
 <div class="row panel-body">
       <div class="col-lg-12 white-bg"><i class="icon-info-sign"></i> Bienvenue <?php echo $this->Session->read('Auth.User.User.username'); ?>| <strong class="corpus">Flash infos</strong> 
         <marquee behavior="" direction=""> <span>Lancement de la plateforme</span></marquee>
-      </div> 
+      </div>
 </div>
 <div class="row">
   <div class="col-lg-8">
     <section class="panel">
-      <?php echo $this->Form->create('Post',array('url'=>array('controller'=>'Posts','action'=>'AddPost'),'type'=>'file')); ?>
-      <?php echo $this->Form->input('name', array('type'=>'hidden',"autocomplete"=>"off")); ?>
-      <?php echo $this->Form->input('user_id', array('type'=>'hidden',"autocomplete"=>"off")); ?>
-      <?php echo $this->Form->input('type_id', array('type'=>'hidden',"autocomplete"=>"off")); ?>
-      <?php echo $this->Form->textarea('content',array('class'=>'form-control input-lg p-text-area','rows'=>5,'placeholder'=>' Qu\'est ce que vous avez à dire maintenant ?')); ?>
-        <footer class="panel-footer">
-        <?php echo $this->Form->button('Post', array('class'=>"btn btn-danger pull-right")); ?>
-            <!--<ul class="nav nav-pills">
-                <li>
-                    <a href="#"><i class="icon-camera"></i></a>
-                </li>
-                <li>
-                   <a href="#"><i class=" icon-paper-clip"></i></a>
-                </li>
-            </ul>-->
-        </footer>
-      <?php echo $this->Form->end(); ?>
     </section>
   </div>
   <div class="col-lg-4">
@@ -265,6 +248,7 @@
                       <!--total earning end-->
                   </div>
               </div>
+            </div>
             <!--l'investisserur le plus actif-->
             <div class="row">
              <div class="col-lg-4"><h3> <i class='icon-star-empty'></i> Investisseur Actif</h3></div>
