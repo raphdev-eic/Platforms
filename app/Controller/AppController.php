@@ -17,7 +17,7 @@ class AppController extends Controller {
        parent::beforeFilter();
        //request ajax component configuration
        if($this->RequestHandler->isAjax()){
-           $this->layout = false;
+           $this->layout = 'ajax';
            Configure::write('debug',0);
                 if($this->request->is('ajax')){
                     $this->disableCache();

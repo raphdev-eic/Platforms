@@ -20,25 +20,17 @@ class UsersController extends AppController {
 		$user_id = $this->Auth->user('User.id');
 
 		if(!$user_id){
-
 			$this->redirect(Configure::read('apps'));
-
 		}
 
 		$parts = $this->User->find('first',array(
-
          'conditions'=>array('User.id'=>$user_id),
-
          'fields'=>array('User.parts')
-
 		));
 
 		$this->loadModel('Value');
-
 		$vl = $this->Value->find('first',array(
-
            'order'=>array('Value.created Desc')
-
 		));
 
     //recuperation des derniers inscrits
@@ -60,25 +52,16 @@ class UsersController extends AppController {
 
 
     public function profil(){
-
     $user_id = $this->Auth->user('User.id');
-
        if(!$user_id){
-
 		    $this->Cookie->write('EicAuth','',true, time() - 3600 * 24 * 3);
-
 		    $this->Cookie->delete('EicAuth');
-
 		    return $this->redirect($this->Auth->logout());
-
        }
 
        $userInfo = $this->User->getUserInfo($user_id);
-
     		$this->loadModel('Value');
-
     		$vl = $this->Value->find('first',array(
-
                'order'=>array('Value.created Desc')
 
     		));
@@ -112,23 +95,7 @@ class UsersController extends AppController {
 
 
     public function edit($id = null){
-
-       $user_id = $this->Auth->user('User.id');
-
-       if(!$user_id){
-
-		    $this->Cookie->write('EicAuth','',true, time() - 3600 * 24 * 3);
-
-		    $this->Cookie->delete('EicAuth');
-
-		    return $this->redirect($this->Auth->logout());
-
-       }
-
-       $userInfo = $this->User->getUserInfo($user_id);
-
-       $this->set(compact('userInfo'));
-
+        $id = $this->Auth->user('User.id');
     }
 
 
@@ -238,6 +205,7 @@ class UsersController extends AppController {
   	            $this->Session->setFlash('Warning! Enregistrement Du fieul echoué ,  veuillez réessayer','error');
   	    }
     }
+
 
     /**
      * [logout description]

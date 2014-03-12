@@ -2,11 +2,11 @@
 <html lang="en">
   <head>
     <?php echo $this->Html->charset('utf-8'); ?>
-    <?php echo $this->Html->meta('viewport','width=device-width, initial-scale=1.0'); ?>
-    <?php echo $this->Html->meta('description','eic corporation app , service eic, platform eic , ivoire invest'); ?>
-    <?php echo $this->Html->meta('author','eic corporation'); ?>
-    <?php echo $this->Html->meta('keyword','dashboard eic corporation, platform'); ?>
-    <?php echo $this->Html->meta('favicon.ico','/img/favicon.png',array('type' => 'icon')); ?> 
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Raphael blehoue">
+    <link rel="shortcut icon" href="img/favicon.png">
     <title>PlateFotrm | EiC Corporation</title>
 
     <!-- Bootstrap core CSS -->
@@ -261,11 +261,15 @@
                   <!-- user login dropdown start-->
                   <li class="dropdown">
                       <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                          <?php if (!$this->Session->check('Auth.User.Avatar.0.url')): ?>
-                             <?php echo $this->Html->image('http://dummyimage.com/29x29/bbb/05071f.png&text=avatar'); ?>
+                          <?php $avatars = $this->Session->read('Auth.User.Avatar');?>
+                          <?php if (!empty($avatars)): ?>
+                          <?php
+                              $av = end($avatars);
+                              echo $this->Image->resize($av['url'],29,29);
+                          ?>
                           <?php else: ?>
-                             <?php echo $this->Html->image($this->Session->read('Auth.User.Avatar.0.url'),array('width'=>29,'height'=>29)); ?>
-                         <?php endif; ?>
+                             <?php echo $this->Html->image('http://dummyimage.com/29x29/bbb/05071f.png&text=avatar'); ?>
+                          <?php endif; ?>
                           <span class="username"><?php echo $this->Session->read('Auth.User.User.username'); ?></span>
                           <b class="caret"></b>
                       </a>
@@ -303,7 +307,7 @@
                             <a  href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'profil'));?>">Afficher son profil</a>
                         </li>
                           <li><a  href="<?php echo $this->Html->url(array('controller'=>'Users','action'=>'ListFeuil')); ?>">Affiliations</a></li>
-                          <li><a  href="<?php //echo $this->Html->url(array('controller' => 'Cashflows', 'action' => 'index')); ?>">Cashflows</a></li>
+                          <li><a  href="<?php echo $this->Html->url(array('controller' => 'Cashflows', 'action' => 'index')); ?>">Cashflows</a></li>
                       </ul>
                   </li>
                   <!--<li class="sub-menu">
@@ -327,12 +331,12 @@
                           <!--<span class="label label-danger pull-right mail-info">2</span>-->
                       <!--</a>
                   </li>-->
-                  <!--<li class="sub-menu">
-                      <a href="<?php //echo $this->Html->url(array('controller' => 'Posts', 'action' => 'newsfeed')); ?>">
+                  <li class="sub-menu">
+                      <a href="<?php echo $this->Html->url(array('controller' => 'Posts', 'action' => 'newsfeed')); ?>">
                           <i class="icon-info"></i>
                           <span>Fil d'actualités</span>
                       </a>
-                  </li>-->
+                  </li>
                   <li class="sub-menu">
                       <a href="javascript:;">
                           <i class="icon-shopping-cart"></i>
@@ -351,7 +355,7 @@
                           <span>Variations</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="<?php //echo $this->Html->url(array('controller' => 'Transactions', 'action' => 'Rendement')); ?>">Rendements</a></li>
+                          <li><a  href="<?php echo $this->Html->url(array('controller' => 'Transactions', 'action' => 'Rendement')); ?>">Rendements</a></li>
                           <!--<li><a  href="#">Analyses</a></li>
                           <li><a  href="#">Economiques</a></li>
                           <li><a  href="#">Statistiques</a></li>-->
@@ -434,7 +438,7 @@
               $('select.styled').customSelect();
           });
       </script>
-        <script type="text/javascript">
+        <!--<script type="text/javascript">
 
           var _gaq = _gaq || [];
           _gaq.push(['_setAccount', 'UA-48181155-1']);
@@ -446,6 +450,6 @@
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
           })();
 
-        </script>
+        </script>-->
   </body>
 </html>

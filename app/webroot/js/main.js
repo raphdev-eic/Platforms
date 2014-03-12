@@ -90,5 +90,6 @@ $("#comment-form").focus(function(){
     $('#mont').empty().text(montant).addClass('blod');
  });
 
+
 });
 

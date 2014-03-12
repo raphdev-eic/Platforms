@@ -52,7 +52,7 @@
                           </div>
                           <div class="panel-body bio-graph-info">
                               <h1> Profile Info</h1>
-                              <?php echo $this->Form->create('Profile',array('class'=>'form-horizontal','role'=>'form'));?>
+                                 <?php echo $this->Form->create('Profile',array('class'=>'form-horizontal','role'=>'form','url'=>array('controller'=>'Users','action'=>'EditProfile')));?>
                                  <?php echo $this->Form->input('id',array('type'=>'hidden')); ?>
                                  <?php echo $this->Form->input('user_id',array('type'=>'hidden')); ?>
                                   <div class="form-group">
@@ -76,7 +76,7 @@
                                   <div class="form-group">
                                       <label  class="col-lg-2 control-label">Sexe</label>
                                       <div class="col-lg-6">
-                                          <?php echo $this->Form->input('sexe',array('type'=>'select','options'=>array('Masculin','Feminin'),'empty'=>'(chosissez)','id'=>'profileSexe','label'=>false,'class'=>'form-control m-bot15')); ?>                                  
+                                          <?php echo $this->Form->input('sexe',array('type'=>'select','options'=>array('Masculin','Feminin'),'empty'=>'(chosissez)','id'=>'profileSexe','label'=>false,'class'=>'form-control m-bot15')); ?>
                                       </div>
                                   </div>
                                   <div class="form-group">
@@ -119,6 +119,7 @@
                               <?php echo $this->Form->end(); ?>
                           </div>
                       </section>
+
                       <section>
                           <div class="panel panel-primary">
                               <div class="panel-heading"> Modifier votre mot de passe et votre photo de profile</div>
@@ -127,30 +128,30 @@
                                       <div class="form-group">
                                           <label  class="col-lg-2 control-label">Mot de passe courant</label>
                                           <div class="col-lg-6">
-                                            <?php echo $this->Form->input('password', array('label'=>false,'class'=>'form-control','id'=>'userPassword')); 
-                                            ?>                                          
+                                            <?php echo $this->Form->input('password', array('label'=>false,'class'=>'form-control','id'=>'userPassword'));
+                                            ?>
                                           </div>
                                       </div>
                                       <div class="form-group">
                                           <label  class="col-lg-2 control-label">Nouveau mot de passe</label>
                                           <div class="col-lg-6">
-                                            <?php echo $this->Form->input('pass1', array('label'=>false,'class'=>'form-control','id'=>'userPass1')); 
-                                            ?>                                            
+                                            <?php echo $this->Form->input('pass1', array('label'=>false,'class'=>'form-control','id'=>'userPass1'));
+                                            ?>
                                           </div>
                                       </div>
                                       <div class="form-group">
                                           <label  class="col-lg-2 control-label">Entrez à nouveau le mot de passe</label>
                                           <div class="col-lg-6">
-                                            <?php echo $this->Form->input('pass2', array('label'=>false,'class'=>'form-control','id'=>'userPass2')); 
-                                            ?>                                          
+                                            <?php echo $this->Form->input('pass2', array('label'=>false,'class'=>'form-control','id'=>'userPass2'));
+                                            ?>
                                           </div>
                                       </div>
 
                                       <div class="form-group">
                                           <label  class="col-lg-2 control-label">Change photo de profil</label>
                                           <div class="col-lg-6">
-                                              <?php echo $this->Form->input('Avatar.0.url_file', array('label'=>false,'class'=>'file-pos','id'=>'userFile','type'=>'file')); 
-                                              ?>  
+                                              <?php echo $this->Form->input('Avatar.0.url_file', array('label'=>false,'class'=>'file-pos','id'=>'userFile','type'=>'file'));
+                                              ?>
                                           </div>
                                       </div>
 

@@ -293,7 +293,7 @@ var Script = function () {
 
                 height: i
 
-            }, 2000)
+            }, 2000);
 
         });
 

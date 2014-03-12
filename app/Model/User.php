@@ -957,7 +957,7 @@ class User extends AppModel {
 
             'conditions'=>array('User.status'=>1),
 
-            'order'=>'User.id DESC',
+            'order'=>'User.created DESC',
 
             'limit'=>2
 

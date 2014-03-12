@@ -6,10 +6,14 @@
         <!-- start photo connect-->
           <div class="col-lg-1">
               <section>
-                <?php if (!$this->Session->check('Auth.User.Avatar.0.url')): ?>
-                    <?php echo $this->Html->image('http://dummyimage.com/52x52/bbb/05071f.png&text=avatar'); ?>
+                <?php $avatars = $this->Session->read('Auth.User.Avatar');?>
+                <?php if (!empty($avatars)): ?>
+                <?php
+                    $av = end($avatars);
+                    echo $this->Image->resize($av['url'],52,52);
+                ?>
                 <?php else: ?>
-                    <?php echo $this->Image->resize($this->Session->read('Auth.User.Avatar.0.url'),52,52); ?>
+                    <?php echo $this->Html->image('http://dummyimage.com/52x52/bbb/05071f.png&text=avatar'); ?>
                 <?php endif; ?>
               </section>
           </div>
@@ -27,12 +31,13 @@
                   <?php echo $this->Form->input('user_id', array('type'=>'hidden',"autocomplete"=>"off")); ?>
                   <?php echo $this->Form->input('type_id', array('type'=>'hidden',"autocomplete"=>"off")); ?>
                   <?php echo $this->Form->input('content',array('class'=>'form-control input-lg p-text-area','rows'=>5,'placeholder'=>'Transmettez-nous une information ici...','id'=>'form-content','label'=>false)); ?>
+                    <div id="linkbox">test</div>
                     <footer class="panel-footer" id="footer">
                     <div class="loader pull-right"><?php echo $this->Html->image('ajax-loader.gif');?></div>
                     <?php echo $this->Form->button('Partager', array('class'=>"btn btn-info pull-right")); ?>
                         <ul class="nav nav-pills">
                             <li data-original-title="Joindre une image ou un fichier" data-placement="left" class="tooltips">
-                                <a href="#"><i class="icon-camera"></i></a>
+                                <!--<a href="#"><i class="icon-camera"></i></a>-->
                             </li>
                         </ul>
                     </footer>
@@ -65,20 +70,23 @@
               <span class='title'>Derniers inscrits</span>
           </header>
           <ul class="list-group">
+            <?php foreach ($last as $key => $value): ?>
               <li class="list-group-item">
                   <a href="javascript:;">
-                  {{<?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar');?>}}
-                   {{name inscrit}}
+                    <?php $avatars = $value['Avatar'];?>
+                    <?php if (!empty($avatars)): ?>
+                    <?php
+                        $avs = end($avatars);
+                        echo $this->Image->resize($avs['url'],35,35);
+                    ?>
+                    <?php else: ?>
+                        <?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar'); ?>
+                    <?php endif; ?>
                   </a>
+                  <?php echo $value['User']['lastname'].' '.$value['User']['firstname']; ?>
                   <a href="javascript:;"><span class="label label-primary pull-right r-activity"><i class="icon-envelope"></i></span></a>
               </li>
-              <li class="list-group-item">
-                  <a href="javascript:;">
-                  {{<?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar');?>}}
-                   {{name inscrit}}
-                  </a>
-                  <a href="javascript:;"><span class="label label-primary pull-right r-activity"><i class="icon-envelope"></i></span></a>
-              </li>
+            <?php endforeach; ?>
           </ul>
       </section>
      <!--end last inscrit-->
@@ -87,22 +95,22 @@
      <section class="panel">
           <ul class="list-group">
               <li class="list-group-item">
-                   <i class="icon-group"></i> Abonnements <a href="javascript:;"><span class="label label-danger pull-right r-activity">99+</span></a>
+                   <i class="icon-group"></i> Abonnements <a href="javascript:;"><span class="label label-danger pull-right r-activity">0</span></a>
               </li>
               <li class="list-group-item">
-                  <i class="icon-bell-alt"></i> Notifications <a href="javascript:;"><span class="label label-danger pull-right r-activity">30</span></a>
+                  <i class="icon-bell-alt"></i> Notifications <a href="javascript:;"><span class="label label-danger pull-right r-activity">0</span></a>
               </li>
               <li class="list-group-item">
-                  <i class="icon-bookmark"></i> Posts <a href="javascript:;"><span class="label label-danger pull-right r-activity">99+</span></a>
+                  <i class="icon-bookmark"></i> Posts <a href="javascript:;"><span class="label label-danger pull-right r-activity">0</span></a>
               </li>
               <li class="list-group-item">
-                  <i class="icon-comment"></i> Commentaires <a href="javascript:;"><span class="label label-danger pull-right r-activity">99+</span></a>
+                  <i class="icon-comment"></i> Commentaires <a href="javascript:;"><span class="label label-danger pull-right r-activity">0</span></a>
               </li>
               <li class="list-group-item">
-                  <i class="icon-user"></i> Abonner <a href="javascript:;"><span class="label label-danger pull-right r-activity">80</span></a>
+                  <i class="icon-user"></i> Abonner <a href="javascript:;"><span class="label label-danger pull-right r-activity">0</span></a>
               </li>
               <li class="list-group-item">
-                  <i class="icon-sitemap"></i> Filleul <a href="javascript:;"><span class="label label-danger pull-right r-activity">20</span></a>
+                  <i class="icon-sitemap"></i> Filleul <a href="javascript:;"><span class="label label-danger pull-right r-activity">0</span></a>
               </li>
           </ul>
      </section>
@@ -113,7 +121,8 @@
               <span class='title'>Annonces</span> <span class="pull-right"><a href="#" class="btn btn-info">Créer</a></span>
           </header>
               <ul class="list-group" id="annonce-scroll">
-                <li class="list-group-item">
+                <div><h5>Positionnez votre business ici</h5></div>
+                <!--<li class="list-group-item">
                      <?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar');?><strong> Sampan Blehoue Hermann</strong><br/> {{non elementum odio mattis, tortor? Mattis lacus hac facilisis amet adipiscing urna tincidunt duis et, ac elementum a, platea}}  <a href="javascript:;"><span class="label label-info pull-right r-activity"><i class="icon-plus"></i></span></a>
                 </li>
                 <li class="list-group-item">
@@ -131,7 +140,7 @@
                 <li class="list-group-item">
                      <?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar');?><strong> Sampan Blehoue Hermann</strong><br/> {{non elementum odio mattis, tortor? Mattis lacus hac facilisis amet adipiscing urna tincidunt duis et, ac elementum a, platea}}  <a href="javascript:;"><span class="label label-info pull-right r-activity"><i class="icon-plus"></i></span></a>
                 </li>
-                <a href="javascript:;" class="annonce-link">Afficher tous</a>
+                <a href="javascript:;" class="annonce-link">Afficher tous</a>-->
               </ul>
      </section>
   </div>
@@ -139,7 +148,8 @@
       <section>
           <div class="section-chat" id="inline-chat">
               <p></p>
-              <ul>
+              <ul>Bientôt disponible</ul>
+              <!--<ul>
                  <li>
                    <a href="#" class="link-chat"><?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar');?>{{name}} <i class=" icon-circle text-success"></i>
                    </a>
@@ -200,12 +210,37 @@
               <ul>
                    <a href="#" class="link-chat"><?php echo $this->Html->image('http://dummyimage.com/35x35/bbb/05071f.png&text=avatar');?>{{name}} <i class=" icon-circle text-success"></i>
                    </a>
-              </ul>
+              </ul>-->
           </div>
       </section>
       <!--news actualité-->
     </div>
 </div>
 <?php echo $this->Html->script('jquery.livequery',array('inline'=>false)); ?>
+<?php echo $this->Html->script('jquery.autosize.min',array('inline'=>false)); ?>
 <?php echo $this->Html->script('ajax/jquery.postInfo',array('inline'=>false)); ?>
+<?php echo $this->Html->script('jquery.timeago',array('inline'=>false)); ?>
 
+<?php echo $this->Html->scriptStart(array('inline'=>false)); ?>
+$(document).ready(function(){
+    $(".timeago").livequery(function(){
+    jQuery.timeago.settings.strings = {
+       // environ ~= about, it's optional
+       prefixAgo: "il y a",
+       prefixFromNow: "d'ici",
+       seconds: "moins d'une minute",
+       minute: "environ une minute",
+       minutes: "environ %d minutes",
+       hour: "environ une heure",
+       hours: "environ %d heures",
+       day: "environ un jour",
+       days: "environ %d jours",
+       month: "environ un mois",
+       months: "environ %d mois",
+       year: "un an",
+       years: "%d ans"
+    };
+       $(this).timeago();
+    });
+});
+<?php echo $this->Html->scriptEnd(); ?>

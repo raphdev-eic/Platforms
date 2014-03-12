@@ -16,7 +16,10 @@ class PostsController extends AppController{
   	}
 
     public function newsfeed(){
-
+      $last = $this->Post->User->getLastSign();
+      if(!empty($last)){
+        $this->set(compact('last'));
+      }
     }
 
     /**
@@ -27,14 +30,17 @@ class PostsController extends AppController{
        if(!$this->Auth->user('User.id')){
          $this->redirect($this->Auth->logout());
        }
-      //ajax post element
+         //ajax post element
          if(!empty($this->request->data)){
-          //testé l'avatar a refaire
-                if (!$this->Session->check('Auth.User.Avatar.0.url')){
-                   $avatar = 'http://dummyimage.com/52x52/bbb/05071f.png&text=avatar';
-                }else{
-                   $avatar = $this->Session->read('Auth.User.Avatar.0.url');
-                }
+
+            //testé l'avatar a refaire
+             $avatars = $this->Session->read('Auth.User.Avatar');
+             if(!empty($avatars)){
+                $avatar = end($avatars);
+             }else{
+                $avatar = 'http://dummyimage.com/52x52/bbb/05071f.png&text=avatar';
+             }
+
              $this->request->data['Post']['name'] = ucfirst($this->Auth->user('User.lastname')).' '.ucfirst($this->Auth->user('User.firstname'));
              $this->request->data['Post']['user_id'] = $this->Auth->user('User.id');
              $this->request->data['Post']['type_id'] = (int)1;
@@ -42,29 +48,28 @@ class PostsController extends AppController{
              if($this->RequestHandler->isAjax()){
                  $this->Post->create();
                 if($this->Post->save($this->request->data)){
-                      $time = $this->Post->findById($this->Post->id);
-                       // creation de l'objet de reponse
-                       $user = array(
-                         'reponse'=>1,
-                         'names'=>$this->request->data['Post']['name'],
-                         'userid'=>$this->request->data['Post']['user_id'],
-                         /*'avatar'=>$avatar,
-                         'avatarcomment'=>$avatarcomment,*/
-                         'postid'=>$this->Post->id,
-                         'duration'=> $time['Post']['created'],
-                         'content'=>$this->request->data['Post']['content']
-                       );
-                      echo json_encode($user);
-                      exit();
+                  $time = $this->Post->findById($this->Post->id);
+                  // creation de l'objet de reponse
+                  $user = array(
+                    'reponse'=>1,
+                    'names'=>$this->request->data['Post']['name'],
+                    'userid'=>$this->request->data['Post']['user_id'],
+                    'photo'=>$avatar,
+                    'postid'=>$this->Post->id,
+                    'duration'=> $time['Post']['upaded'],
+                    'content'=>$this->request->data['Post']['content']
+                  );
+                  echo json_encode($user);
+                  exit();
                 }else{
-                     $user = array(
-                       'reponse'=>0
-                     );
-                    echo json_encode($user);
-                    exit();
+                  $user = array(
+                    'reponse'=>0
+                  );
+                  echo json_encode($user);
+                  exit();
                 }
             exit();
-          }else{
+          } else{
           ///php post elt;
              if($this->request->is('post')){
                   $this->Post->create();
@@ -82,43 +87,39 @@ class PostsController extends AppController{
     }
 
     public function getNewfeedContent(){
-       if(!$this->Auth->user('User.id')){
-          $this->Auth->logout();
-          exit();
-       }
-       if($this->RequestHandler->isAjax()){
-        /*if($this->request->query['item']){
-          if($this->request->query['item'] >= 1){
-            $postid = $this->request->query['item'];
-          }else{
-            $postid = 1;
-          }
-        }*/
-               $all = array();
-               //$Postlist = $this->Post->find('all',array('contain'=>array('Post')));
-               $Postlist = $this->Post->find('all',array(
-                   'contain'=>array('Type',
-                    'Comment'=>array(
-                     'User'=>array(
-                        'fields'=>array('User.id','User.firstname','User.lastname','User.username'),
-                        'Avatar'=>array(
-                            'fields'=>array('id','url'),
-                            'order'=>'Avatar.id DESC',
-                            'limit'=>1
-                         )
-                      )
-                    ),
-                    'User'=>array(
-                      'fields'=>array('User.id','User.username','User.email'),
+
+        if(!$this->Auth->user('User.id')){
+           $this->Auth->logout();
+           exit();
+        }
+
+        if($this->RequestHandler->isAjax()){
+            $all = array();
+            $Postlist = $this->Post->find('all',array(
+              'contain'=>array('Type',
+              'Comment'=>array(
+                  'User'=>array(
+                      'fields'=>array('User.id','User.firstname','User.lastname','User.username'),
                       'Avatar'=>array(
-                            'fields'=>array('id','url'),
-                            'order'=>"Avatar.id DESC",
-                            'limit'=>1
+                          'fields'=>array('id','url'),
+                          'order'=>'Avatar.id DESC',
+                          'limit'=>1
                         )
+                      ),
+                    'order'=>'Comment.updated DESC',
+                    'limit'=>6
+                    ),
+              'User'=>array(
+                  'fields'=>array('User.id','User.username','User.email'),
+                  'Avatar'=>array(
+                        'fields'=>array('id','url'),
+                        'order'=>"Avatar.id DESC",
+                        'limit'=>1
+                      )
                     )),
-                   //'conditions'=>array('Post.id <'=> $postid),
                    'order'=>'Post.created DESC',
-                   'limit'=>20
+                   'limit'=>10,
+                   'offset' =>0
                 ));
                    if(!empty($Postlist)){
                       $all = array(
@@ -135,7 +136,7 @@ class PostsController extends AppController{
                        exit();
                    }
               exit();
-       }
+        }
     }
 
     public function infinieScrolling(){
@@ -145,11 +146,7 @@ class PostsController extends AppController{
                }
                if($this->RequestHandler->isAjax()){
                 if($this->request->query['item']){
-                  if($this->request->query['item'] >= 1){
-                    $postid = $this->request->query['item'];
-                  }else{
-                    $postid = 1;
-                  }
+                  $postid = $this->request->query['item'];
                 }
                        $all = array();
                        //$Postlist = $this->Post->find('all',array('contain'=>array('Post')));
@@ -173,9 +170,9 @@ class PostsController extends AppController{
                                     'limit'=>1
                                 )
                             )),
-                           'conditions'=>array('Post.id > '=> $postid),
                            'order'=>'Post.created DESC',
-                           'limit'=>10
+                           'limit'=>10,
+                           'offset'=>$postid
                         ));
                            if(!empty($Postlist)){
                               $all = array(
@@ -193,5 +190,15 @@ class PostsController extends AppController{
                            }
                       exit();
                }
+    }
+
+    public function UrlGet(){
+      if($this->RequestHandler->isAjax()){
+        if($this->request->query['url']){
+          $url = $this->request->query['url'];
+          echo file_get_contents($url);
+          exit();
+        }
+      }
     }
 }

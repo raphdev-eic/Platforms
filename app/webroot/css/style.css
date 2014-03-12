@@ -10002,3 +10002,53 @@ border-bottom-left-radius: 3px;
     font-variant: small-caps;
     letter-spacing: 1px;
     }
+.blues{
+    color:#324BA0;
+}
+
+.greenn{
+    color:#16A765;
+}
+.reds{
+    color:#CB4437;
+}
+abbr{
+    margin-left: 4.750em;
+    margin-right: 3.750em;
+}
+
+abbr:hover{
+    color:#667fa0;
+    text-decoration:underline;
+}
+.usern{
+    color:#667fa0;
+    font-weight:bold;
+}
+.comt{
+    margin-bottom: 10px;
+}
+.comcolor{
+    background: #EAEFF2;
+}
+.UiCommentBotton{
+ border:5px solid #fff;
+}
+
+.UiFormBotton{
+ border-top:5px solid #fff;
+}
+
+#TplComment{
+    display: none;
+}
+
+#linkbox{
+border:solid 2px #dedede; min-height:80px; padding:15px;
+display: none;
+}
+
+.imglinkbox{
+    float:left; width:150px; margin-right:10px;
+    text-align:center;
+}

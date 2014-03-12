@@ -1,11 +1,12 @@
 <div class="row panel-body">
       <div class="col-lg-12 white-bg"><i class="icon-info-sign"></i> Bienvenue <?php echo $this->Session->read('Auth.User.User.username'); ?>| <strong class="corpus">Flash infos</strong> 
-        <marquee behavior="" direction=""> <span>Lancement de la plateforme</span></marquee>
+        <marquee behavior="" direction=""> <span><?php echo $this->element('value-info'); ?></span></marquee>
       </div>
 </div>
 <div class="row">
   <div class="col-lg-8">
     <section class="panel">
+       <?php echo $this->Html->image('banner/forex_banner.png',array('alt'=>"Seminaire forex",'width'=>'100%')); ?>
     </section>
   </div>
   <div class="col-lg-4">
@@ -145,69 +146,7 @@
                   <div class="col-lg-8">
                     <section class="panel">
                       <div class="panel-body">
-                      <!--custom chart start-->
-                      <div class="border-head">
-                          <h3>Graphe de Variation Indicé Des Entreprises Cotée Par Secteur</h3>
-                      </div>
-                     <!-- <div class="custom-bar-chart">
-                          <ul class="y-axis">
-                              <li><span>100</span></li>
-                              <li><span>80</span></li>
-                              <li><span>60</span></li>
-                              <li><span>40</span></li>
-                              <li><span>20</span></li>
-                              <li><span>0</span></li>
-                          </ul>
-                          <div class="bar">
-                              <div class="title">JAN</div>
-                              <div class="value tooltips" data-original-title="80%" data-toggle="tooltip" data-placement="top">80%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">FEB</div>
-                              <div class="value tooltips" data-original-title="50%" data-toggle="tooltip" data-placement="top">50%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">MAR</div>
-                              <div class="value tooltips" data-original-title="40%" data-toggle="tooltip" data-placement="top">40%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">APR</div>
-                              <div class="value tooltips" data-original-title="55%" data-toggle="tooltip" data-placement="top">55%</div>
-                          </div>
-                          <div class="bar">
-                              <div class="title">MAY</div>
-                              <div class="value tooltips" data-original-title="20%" data-toggle="tooltip" data-placement="top">20%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">JUN</div>
-                              <div class="value tooltips" data-original-title="39%" data-toggle="tooltip" data-placement="top">39%</div>
-                          </div>
-                          <div class="bar">
-                              <div class="title">JUL</div>
-                              <div class="value tooltips" data-original-title="75%" data-toggle="tooltip" data-placement="top">75%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">AUG</div>
-                              <div class="value tooltips" data-original-title="45%" data-toggle="tooltip" data-placement="top">45%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">SEP</div>
-                              <div class="value tooltips" data-original-title="50%" data-toggle="tooltip" data-placement="top">50%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">OCT</div>
-                              <div class="value tooltips" data-original-title="42%" data-toggle="tooltip" data-placement="top">42%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">NOV</div>
-                              <div class="value tooltips" data-original-title="60%" data-toggle="tooltip" data-placement="top">60%</div>
-                          </div>
-                          <div class="bar ">
-                              <div class="title">DEC</div>
-                              <div class="value tooltips" data-original-title="90%" data-toggle="tooltip" data-placement="top">90%</div>
-                          </div>
-                      </div>-->
-                      <!--custom chart end-->
+                       <div id="visualization" style="width:700px; height: 430px;"></div>
                       </div>
                      </section>
                   </div>
@@ -215,39 +154,47 @@
                       <!--new earning start-->
                       <div class="panel terques-chart">
                           <div class="panel-body chart-texture">
-                              <!--<div class="chart">
+                              <div class="chart">
                                   <div class="heading">
-                                      <span>Novembre</span>
-                                      <strong>$ 57,00 | 15%</strong>
+                                      <span><?php
+                                          setlocale (LC_TIME, 'fr_FR.utf8','fra');
+                                          echo (strftime("%A %d %B")); ?>
+                                      </span>
+                                      <strong>XOF 5631,00 | -0.04%  (VL)</strong>
                                   </div>
-                                  <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[200,135,667,333,526,996,564,123,890,564,455]"></div>
+                                  <div class="sparkline" data-type="line" data-resize="true" data-height="75" data-width="90%" data-line-width="1" data-line-color="#fff" data-spot-color="#fff" data-fill-color="" data-highlight-line-color="#fff" data-spot-radius="4" data-data="[5724,5732,5727,5693,5614,5721,5717,5631]"></div>
                               </div>
-                          </div>-->
+                          </div>
                           <div class="chart-tittle">
-                              <span class="title">Graph de Variation de la VL</span>
+                              <span class="title">Variation de la valeur liquidative (VL)</span>
                           </div>
                       </div>
                       <!--new earning end-->
 
                       <!--total earning start-->
                       <div class="panel green-chart">
-                          <!--<div class="panel-body">
+                          <div class="panel-body">
                               <div class="chart">
-                                  <div class="heading">
-                                      <span>November</span>
-                                      <strong>23 Days | 65%</strong>
-                                  </div>
-                                  <div id="barchart"></div>
+
+                                <div id="piechart" style="width:auto; height: 234px;"></div>
+
                               </div>
-                          </div>-->
-                          <div class="chart-tittle">
-                              <span class="title">Variation De Votre Portefeuille</span>
-                              <span class="value">0</span>
                           </div>
                       </div>
                       <!--total earning end-->
                   </div>
               </div>
+
+             <div class="row">
+                  <div class="col-lg-12">
+                    <section class="panel">
+                      <div class="panel-body">
+                          <div id="portfolio" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                      </div>
+                     </section>
+                  </div>
+             </div>
+
             </div>
             <!--l'investisserur le plus actif-->
             <div class="row">
@@ -498,7 +445,7 @@
                                           <div class="tab-pane active" id="popular">
                                               <!--<article class="media">
                                                   <a class="pull-left thumb p-thumb">
-                                                  <?php echo $this->Html->image('http://dummyimage.com/50x50/bbb/05071f.png&text=imh'); ?>                                
+                                                  <?php echo $this->Html->image('http://dummyimage.com/50x50/bbb/05071f.png&text=imh'); ?>
                                                 </a>
                                                   <div class="media-body">
                                                       <a class=" p-head" href="#">Item One Tittle</a>
@@ -562,3 +509,94 @@
                       <!--features carousel end-->
                   </div>
               </div>
+<?php echo $this->Html->script('https://www.google.com/jsapi',array('inline'=>false)); ?>
+<?php echo $this->Html->script('highcharts',array('inline'=>false)); ?>
+
+<?php echo $this->Html->scriptStart(array('inline'=>false)); ?>
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Sector', 'part par marche'],
+          ['Industrie',5.91],
+          ['Publics',24.11],
+          ['Finances',3.10],
+          ['Transport',31],
+          ['Agriculture', 11.64],
+          ['Distribution',9.5],
+          ['Autres',14.73]
+        ]);
+
+        var options = {
+          title: 'Repartition des Marchés (secteur)',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+      }
+<?php echo $this->Html->scriptEnd(); ?>
+
+
+<?php echo $this->Html->scriptStart(array('inline'=>false)); ?>
+        google.load('visualization', '1');
+        function drawVisualization() {
+        var wrapper = new google.visualization.ChartWrapper({
+          chartType: 'ColumnChart',
+          dataTable: [
+                      ['', 'Industrie', 'Services public', 'Finances', 'Transport', 'Agriculture', 'Distribution','Autres'],
+                      ['', 159.3, 649.47, 83.46, 835.41, 313.69, 255.92,396.91]
+                     ],
+          options: {'title': 'Volume des indices par secteur (Marchés)'},
+          containerId: 'visualization'
+        });
+        wrapper.draw();
+      }
+      google.setOnLoadCallback(drawVisualization);
+<?php echo $this->Html->scriptEnd(); ?>
+
+
+<?php echo $this->Html->scriptStart(array('inline'=>false)); ?>
+$(function () {
+    $('#portfolio').highcharts({
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false
+        },
+        title: {
+            text: 'Répartition en valeurs des titres acquis'
+        },
+        tooltip: {
+          pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    color: '#000000',
+                    connectorColor: '#000000',
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Valeur en pourcentage',
+            data: [
+                ['SAPH',   26],
+                {
+                    name: 'ONATEL',
+                    y: 44,
+                    sliced: true,
+                    selected: true
+                },
+                ['SONATEL', 13],
+                ['ETI', 17]
+            ]
+        }]
+    });
+});
+<?php echo $this->Html->scriptEnd(); ?>
